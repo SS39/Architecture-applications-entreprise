@@ -22,3 +22,7 @@ Prendre JSF 2.2, Further configuration available, DL Mojarra 2.2.0
 Prendre JPA 2.1, Further configuration available, DL EclipseLink
 Prendre CDI 1.2, Further configuration available, "generate beans.xml file"
 (On atteint ici les 150Mo ...)
+
+
+- Par défaut les fichiers java et les bean se mettent dans Java Resources 
+- La vue ou IHM est à mettre dans WebContent (fichiers .xhtml)
