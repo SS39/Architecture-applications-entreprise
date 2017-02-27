@@ -1,0 +1,24 @@
+- Installer les différents plug eclipse ayant permettant de gérer les serveurs, et les outils JBoss
+
+- New Server, choisir WildFly10.x
+Server's host name : localhost (nom par défaut)
+Server name : Wildfly 10.x (nom par défaut)
+(on peut mettre autre chose si vous avez des noms intéressants)
+Mon JBoss Runtime s'appelle : WildFly 10.x Runtime (nom par défaut)
+Pour le home directory, aller chercher le wildfly-10.1.0.Final
+Execution en JavaSE-1.8
+(On atteint ici les 2.5Mo)
+
+- New Dynamic Web Project
+name : PimpYourCharacter
+target runtime : Wildfly 10.x Runtime
+dynamic web module version : 3.1
+Cocher "Generate web.xml deployment descriptor"
+(On atteint ici les 90Mo ...)
+
+- Clic droit sur le projet,
+--> Properties --> Project Facets
+Prendre JSF 2.2, Further configuration available, DL Mojarra 2.2.0
+Prendre JPA 2.1, Further configuration available, DL EclipseLink
+Prendre CDI 1.2, Further configuration available, "generate beans.xml file"
+(On atteint ici les 150Mo ...)
