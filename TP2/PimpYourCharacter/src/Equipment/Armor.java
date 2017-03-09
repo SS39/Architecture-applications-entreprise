@@ -5,7 +5,7 @@ public abstract class Armor extends Equipment {
 	private int _weight;
 
 	public int getWeight() {
-		throw new UnsupportedOperationException();
+		return this._weight;
 	}
 
 	/**
@@ -13,7 +13,7 @@ public abstract class Armor extends Equipment {
 	 * @param weight
 	 */
 	public void setWeight(int weight) {
-		throw new UnsupportedOperationException();
+		this._weight = weight;
 	}
 
 }

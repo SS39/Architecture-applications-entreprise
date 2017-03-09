@@ -10,19 +10,19 @@ public abstract class Equipment {
 	private Visual _visual;
 
 	public Color getColor() {
-		throw new UnsupportedOperationException();
+		return this._color;
 	}
 
 	public Form getForm() {
-		throw new UnsupportedOperationException();
+		return this._form;
 	}
 
 	public Texture getTexture() {
-		throw new UnsupportedOperationException();
+		return this._texture;
 	}
 
 	public Visual getVisual() {
-		throw new UnsupportedOperationException();
+		return this._visual;
 	}
 
 	/**
@@ -30,7 +30,7 @@ public abstract class Equipment {
 	 * @param color
 	 */
 	public void setColor(Color color) {
-		throw new UnsupportedOperationException();
+		this._color = color;
 	}
 
 	/**
@@ -38,7 +38,7 @@ public abstract class Equipment {
 	 * @param form
 	 */
 	public void setForm(Form form) {
-		throw new UnsupportedOperationException();
+		this._form = form;
 	}
 
 	/**
@@ -46,7 +46,7 @@ public abstract class Equipment {
 	 * @param texture
 	 */
 	public void setTexture(Texture texture) {
-		throw new UnsupportedOperationException();
+		this._texture = texture;
 	}
 
 	/**
@@ -54,7 +54,7 @@ public abstract class Equipment {
 	 * @param visual
 	 */
 	public void setVisual(Visual visual) {
-		throw new UnsupportedOperationException();
+		this._visual = visual;
 	}
 
 }
