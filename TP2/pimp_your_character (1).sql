@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 26 Février 2017 à 00:19
+-- Généré le :  Jeu 09 Mars 2017 à 05:25
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `pimp_your_character`
 --
-CREATE DATABASE IF NOT EXISTS `pimp_your_character` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `pimp_your_character`;
 
 -- --------------------------------------------------------
 
@@ -50,6 +48,21 @@ CREATE TABLE `arme` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `bouche`
+--
+
+CREATE TABLE `bouche` (
+  `id_bouche` int(11) NOT NULL,
+  `forme` varchar(50) NOT NULL,
+  `largeur` int(11) NOT NULL,
+  `hauteur` int(11) NOT NULL,
+  `profondeur` int(11) NOT NULL,
+  `id_couleur` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `bouclier`
 --
 
@@ -57,6 +70,31 @@ CREATE TABLE `bouclier` (
   `id_bouclier` int(11) NOT NULL,
   `label` varchar(50) NOT NULL,
   `poids` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `bras`
+--
+
+CREATE TABLE `bras` (
+  `id_bras` int(11) NOT NULL,
+  `longueur` int(11) NOT NULL,
+  `forme` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `buste`
+--
+
+CREATE TABLE `buste` (
+  `id_buste` int(11) NOT NULL,
+  `hauteur` int(11) NOT NULL,
+  `largeur` int(11) NOT NULL,
+  `corpulence` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -99,6 +137,21 @@ INSERT INTO `categorie_arme` (`id_categorie_arme`, `categorie_arme`) VALUES
 (11, 'arme de poing'),
 (12, 'arme d\'épaule'),
 (13, 'pistolet');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `corps`
+--
+
+CREATE TABLE `corps` (
+  `id_corps` int(11) NOT NULL,
+  `id_bras` int(11) NOT NULL,
+  `id_jambe` int(11) NOT NULL,
+  `id_buste` int(11) NOT NULL,
+  `id_tete` int(11) NOT NULL,
+  `taille` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -404,18 +457,44 @@ INSERT INTO `genre` (`id_genre`, `label`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `jambe`
+--
+
+CREATE TABLE `jambe` (
+  `id_jambe` int(11) NOT NULL,
+  `hauteur` int(11) NOT NULL,
+  `forme` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `nez`
+--
+
+CREATE TABLE `nez` (
+  `id_nez` int(11) NOT NULL,
+  `hauteur` int(11) NOT NULL,
+  `largeur` int(11) NOT NULL,
+  `profondeur` int(11) NOT NULL,
+  `forme` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `personnage`
 --
 
 CREATE TABLE `personnage` (
   `id_personnage` int(11) NOT NULL,
   `nom` varchar(50) NOT NULL,
-  `taille` int(11) NOT NULL,
   `age` int(11) NOT NULL,
   `id_ethnie` int(11) NOT NULL,
   `id_genre` int(11) NOT NULL,
   `id_vbas` int(11) NOT NULL,
-  `id_vhaut` int(11) NOT NULL
+  `id_vhaut` int(11) NOT NULL,
+  `id_corps` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -521,6 +600,22 @@ CREATE TABLE `tatouage` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `tete`
+--
+
+CREATE TABLE `tete` (
+  `id_tete` int(11) NOT NULL,
+  `id_nez` int(11) NOT NULL,
+  `id_bouche` int(11) NOT NULL,
+  `id_yeux` int(11) NOT NULL,
+  `hauteur` int(11) NOT NULL,
+  `largeur` int(11) NOT NULL,
+  `forme` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `texture`
 --
 
@@ -621,6 +716,22 @@ CREATE TABLE `vtete` (
   `id_couleur` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `yeux`
+--
+
+CREATE TABLE `yeux` (
+  `id_yeux` int(11) NOT NULL,
+  `forme` varchar(50) NOT NULL,
+  `hauteur` int(11) NOT NULL,
+  `largeur` int(11) NOT NULL,
+  `profondeur` int(11) NOT NULL,
+  `ecartement` int(11) NOT NULL,
+  `id_couleur` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Index pour les tables exportées
 --
@@ -642,11 +753,30 @@ ALTER TABLE `arme`
   ADD KEY `id_categorie_arme` (`id_categorie_arme`);
 
 --
+-- Index pour la table `bouche`
+--
+ALTER TABLE `bouche`
+  ADD PRIMARY KEY (`id_bouche`),
+  ADD KEY `id_couleur` (`id_couleur`);
+
+--
 -- Index pour la table `bouclier`
 --
 ALTER TABLE `bouclier`
   ADD PRIMARY KEY (`id_bouclier`),
   ADD UNIQUE KEY `label` (`label`);
+
+--
+-- Index pour la table `bras`
+--
+ALTER TABLE `bras`
+  ADD PRIMARY KEY (`id_bras`);
+
+--
+-- Index pour la table `buste`
+--
+ALTER TABLE `buste`
+  ADD PRIMARY KEY (`id_buste`);
 
 --
 -- Index pour la table `categorie_accessoire`
@@ -659,6 +789,16 @@ ALTER TABLE `categorie_accessoire`
 --
 ALTER TABLE `categorie_arme`
   ADD PRIMARY KEY (`id_categorie_arme`);
+
+--
+-- Index pour la table `corps`
+--
+ALTER TABLE `corps`
+  ADD PRIMARY KEY (`id_corps`),
+  ADD KEY `id_jambe` (`id_jambe`),
+  ADD KEY `id_bras` (`id_bras`),
+  ADD KEY `id_buste` (`id_buste`),
+  ADD KEY `id_tete` (`id_tete`);
 
 --
 -- Index pour la table `couleur`
@@ -682,6 +822,18 @@ ALTER TABLE `genre`
   ADD UNIQUE KEY `label` (`label`);
 
 --
+-- Index pour la table `jambe`
+--
+ALTER TABLE `jambe`
+  ADD PRIMARY KEY (`id_jambe`);
+
+--
+-- Index pour la table `nez`
+--
+ALTER TABLE `nez`
+  ADD PRIMARY KEY (`id_nez`);
+
+--
 -- Index pour la table `personnage`
 --
 ALTER TABLE `personnage`
@@ -690,7 +842,8 @@ ALTER TABLE `personnage`
   ADD KEY `id_ethnie` (`id_ethnie`),
   ADD KEY `id_genre` (`id_genre`),
   ADD KEY `id_vbas` (`id_vbas`),
-  ADD KEY `id_vhaut` (`id_vhaut`);
+  ADD KEY `id_vhaut` (`id_vhaut`),
+  ADD KEY `id_corps` (`id_corps`);
 
 --
 -- Index pour la table `personnage_accessoire`
@@ -756,6 +909,15 @@ ALTER TABLE `tatouage`
   ADD PRIMARY KEY (`id_tatouage`);
 
 --
+-- Index pour la table `tete`
+--
+ALTER TABLE `tete`
+  ADD PRIMARY KEY (`id_tete`),
+  ADD KEY `id_nez` (`id_nez`),
+  ADD KEY `id_bouche` (`id_bouche`),
+  ADD KEY `id_yeux` (`id_yeux`);
+
+--
 -- Index pour la table `texture`
 --
 ALTER TABLE `texture`
@@ -808,6 +970,13 @@ ALTER TABLE `vtete`
   ADD KEY `id_couleur` (`id_couleur`);
 
 --
+-- Index pour la table `yeux`
+--
+ALTER TABLE `yeux`
+  ADD PRIMARY KEY (`id_yeux`),
+  ADD KEY `id_couleur` (`id_couleur`);
+
+--
 -- AUTO_INCREMENT pour les tables exportées
 --
 
@@ -822,10 +991,25 @@ ALTER TABLE `accessoire`
 ALTER TABLE `arme`
   MODIFY `id_arme` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT pour la table `bouche`
+--
+ALTER TABLE `bouche`
+  MODIFY `id_bouche` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT pour la table `bouclier`
 --
 ALTER TABLE `bouclier`
   MODIFY `id_bouclier` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `bras`
+--
+ALTER TABLE `bras`
+  MODIFY `id_bras` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `buste`
+--
+ALTER TABLE `buste`
+  MODIFY `id_buste` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `categorie_accessoire`
 --
@@ -836,6 +1020,11 @@ ALTER TABLE `categorie_accessoire`
 --
 ALTER TABLE `categorie_arme`
   MODIFY `id_categorie_arme` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT pour la table `corps`
+--
+ALTER TABLE `corps`
+  MODIFY `id_corps` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `couleur`
 --
@@ -852,6 +1041,16 @@ ALTER TABLE `ethnie`
 ALTER TABLE `genre`
   MODIFY `id_genre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT pour la table `jambe`
+--
+ALTER TABLE `jambe`
+  MODIFY `id_jambe` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `nez`
+--
+ALTER TABLE `nez`
+  MODIFY `id_nez` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT pour la table `personnage`
 --
 ALTER TABLE `personnage`
@@ -866,6 +1065,11 @@ ALTER TABLE `position`
 --
 ALTER TABLE `tatouage`
   MODIFY `id_tatouage` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `tete`
+--
+ALTER TABLE `tete`
+  MODIFY `id_tete` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `texture`
 --
@@ -897,6 +1101,11 @@ ALTER TABLE `vpied`
 ALTER TABLE `vtete`
   MODIFY `id_vtete` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT pour la table `yeux`
+--
+ALTER TABLE `yeux`
+  MODIFY `id_yeux` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- Contraintes pour les tables exportées
 --
 
@@ -913,13 +1122,29 @@ ALTER TABLE `arme`
   ADD CONSTRAINT `arme_ibfk_1` FOREIGN KEY (`id_categorie_arme`) REFERENCES `categorie_arme` (`id_categorie_arme`);
 
 --
+-- Contraintes pour la table `bouche`
+--
+ALTER TABLE `bouche`
+  ADD CONSTRAINT `bouche_ibfk_1` FOREIGN KEY (`id_couleur`) REFERENCES `couleur` (`id_couleur`);
+
+--
+-- Contraintes pour la table `corps`
+--
+ALTER TABLE `corps`
+  ADD CONSTRAINT `corps_ibfk_1` FOREIGN KEY (`id_jambe`) REFERENCES `jambe` (`id_jambe`),
+  ADD CONSTRAINT `corps_ibfk_2` FOREIGN KEY (`id_bras`) REFERENCES `bras` (`id_bras`),
+  ADD CONSTRAINT `corps_ibfk_3` FOREIGN KEY (`id_buste`) REFERENCES `buste` (`id_buste`),
+  ADD CONSTRAINT `corps_ibfk_4` FOREIGN KEY (`id_tete`) REFERENCES `tete` (`id_tete`);
+
+--
 -- Contraintes pour la table `personnage`
 --
 ALTER TABLE `personnage`
   ADD CONSTRAINT `personnage_ibfk_1` FOREIGN KEY (`id_ethnie`) REFERENCES `ethnie` (`id_ethnie`),
   ADD CONSTRAINT `personnage_ibfk_2` FOREIGN KEY (`id_genre`) REFERENCES `genre` (`id_genre`),
   ADD CONSTRAINT `personnage_ibfk_3` FOREIGN KEY (`id_vbas`) REFERENCES `vbas` (`id_vbas`),
-  ADD CONSTRAINT `personnage_ibfk_4` FOREIGN KEY (`id_vhaut`) REFERENCES `vhaut` (`id_vhaut`);
+  ADD CONSTRAINT `personnage_ibfk_4` FOREIGN KEY (`id_vhaut`) REFERENCES `vhaut` (`id_vhaut`),
+  ADD CONSTRAINT `personnage_ibfk_5` FOREIGN KEY (`id_corps`) REFERENCES `corps` (`id_corps`);
 
 --
 -- Contraintes pour la table `personnage_accessoire`
@@ -972,6 +1197,14 @@ ALTER TABLE `personnage_vtete`
   ADD CONSTRAINT `personnage_vtete_ibfk_2` FOREIGN KEY (`id_vtete`) REFERENCES `vtete` (`id_vtete`);
 
 --
+-- Contraintes pour la table `tete`
+--
+ALTER TABLE `tete`
+  ADD CONSTRAINT `tete_ibfk_1` FOREIGN KEY (`id_nez`) REFERENCES `nez` (`id_nez`),
+  ADD CONSTRAINT `tete_ibfk_2` FOREIGN KEY (`id_bouche`) REFERENCES `bouche` (`id_bouche`),
+  ADD CONSTRAINT `tete_ibfk_3` FOREIGN KEY (`id_yeux`) REFERENCES `yeux` (`id_yeux`);
+
+--
 -- Contraintes pour la table `vbas`
 --
 ALTER TABLE `vbas`
@@ -1005,6 +1238,12 @@ ALTER TABLE `vpied`
 ALTER TABLE `vtete`
   ADD CONSTRAINT `vtete_ibfk_1` FOREIGN KEY (`id_texture`) REFERENCES `texture` (`id_texture`),
   ADD CONSTRAINT `vtete_ibfk_2` FOREIGN KEY (`id_couleur`) REFERENCES `couleur` (`id_couleur`);
+
+--
+-- Contraintes pour la table `yeux`
+--
+ALTER TABLE `yeux`
+  ADD CONSTRAINT `yeux_ibfk_1` FOREIGN KEY (`id_couleur`) REFERENCES `couleur` (`id_couleur`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
