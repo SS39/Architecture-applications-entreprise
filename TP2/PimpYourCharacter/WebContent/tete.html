@@ -1,0 +1,70 @@
+<div>
+	<h1>{{title}}</h1>
+</div>
+<div class = "container-fluid">
+	<div ng-repeat = "tile in tiles" class = "col-md-1" style="width: 12.499999995%"">
+		<div class = "panel panel-default">
+			<div class = "panel-heading">
+				<h3 = "panel-title"><b><u>{{tile.title}}</u></b></h3>
+			</div>
+			<div class = "panel-body">
+				<div id = "identifiant">
+					<div class = "row" ng-if = "tile.identifiant">
+						<div ng-repeat = "elem in tile.identifiant">
+							{{elem}}
+						</div>
+					</div>
+				</div>
+				<div id = "forme">
+					<div class = "row" ng-if = "tile.forme">
+						<div ng-repeat = "elem in tile.forme">
+							{{elem}}
+						</div>
+					</div>
+				</div>
+				<div id = "largeur">
+					<div class = "row" ng-if = "tile.largeur">
+						<div ng-repeat = "elem in tile.largeur">
+							{{elem}}
+						</div>
+					</div>
+				</div>
+				<div id = "hauteur">
+					<div class = "row" ng-if = "tile.hauteur">
+						<div ng-repeat = "elem in tile.hauteur">
+							{{elem}}
+						</div>
+					</div>
+				</div>
+				<div id = "couleur">
+					<div class = "row" ng-if = "tile.couleur">
+						<div ng-repeat = "elem in tile.couleur">
+							{{elem}}
+						</div>
+					</div>
+				</div>
+				<div id = "yeux">
+					<div class = "row" ng-if = "tile.yeux">
+						<div ng-repeat = "elem in tile.yeux">
+							{{elem}}
+						</div>
+					</div>
+				</div>
+				<div id = "nez">
+					<div class = "row" ng-if = "tile.nez">
+						<div ng-repeat = "elem in tile.nez">
+							{{elem}}
+						</div>
+					</div>
+				</div>
+				<div id = "bouche">
+					<div class = "row" ng-if = "tile.bouche">
+						<div ng-repeat = "elem in tile.bouche">
+							{{elem}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,4 +1,5 @@
 {
+  "ecmaVersion": 6,
   "plugins": {
     "guess-types": {
       
@@ -6,12 +7,30 @@
     "outline": {
       
     },
-    "angular": {
+    "jshint": {
+      "config": {
+        "bitwise": true,
+        "curly": true,
+        "eqeqeq": true,
+        "forin": true,
+        "latedef": true,
+        "maxerr": 100,
+        "noarg": true,
+        "node": true,
+        "nonew": true,
+        "esnext": true
+      }
+    },
+    "angular1": {
+      
+    },
+    "bootstrap": {
       
     }
   },
   "libs": [
     "ecma5",
-    "browser"
+    "browser",
+    "jquery"
   ]
 }
