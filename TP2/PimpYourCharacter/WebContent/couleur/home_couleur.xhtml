@@ -1,0 +1,39 @@
+<form xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/composite">
+	<h1>
+		<h:outputText value="Pimp Your Character" />
+	</h1>
+	<h2>
+		<h:outputText value="Liste des Couleurs" />
+	</h2>
+	<br />
+	<p:dataTable value="#{couleurController.couleurs}" var="coul"
+		border="1">
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="ID" />
+			</f:facet>
+			<h:outputText value="#{coul.idCouleur}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="Label" />
+			</f:facet>
+			<h:outputText value="#{coul.label}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="" />
+			</f:facet>
+			<h:commandButton action="modifier_couleur" value="modifier"></h:commandButton>
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="" />
+			</f:facet>
+			<h:commandButton action="supprimer_couleur" value="supprimer"></h:commandButton>
+		</p:column>
+	</p:dataTable>
+	<a href="#/couleuradd">Ajouter Nouvelle couleur</a>
+</form>

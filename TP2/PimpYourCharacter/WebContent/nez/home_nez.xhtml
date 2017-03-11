@@ -1,0 +1,65 @@
+
+<form xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/composite">
+	<h1>
+		<h:outputText value="Pimp Your Character" />
+	</h1>
+	<h2>
+		<h:outputText value="Liste des Nez" />
+	</h2>
+	<br />
+	<p:dataTable value="#{nezController.nez}" var="nez" border="1">
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="ID" />
+			</f:facet>
+			<h:outputText value="#{nez.idNez}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="Forme" />
+			</f:facet>
+			<h:outputText value="#{nez.forme}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="Largeur" />
+			</f:facet>
+			<h:outputText value="#{nez.largeur}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="Hauteur" />
+			</f:facet>
+			<h:outputText value="#{nez.hauteur}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="Profondeur" />
+			</f:facet>
+			<h:outputText value="#{nez.profondeur}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="ID Couleur" />
+			</f:facet>
+			<h:outputText value="#{nez.couleur}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="" />
+			</f:facet>
+			<h:commandButton action="modifier_nez" value="modifier"></h:commandButton>
+		</p:column>
+
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="" />
+			</f:facet>
+			<h:commandButton value="Supprimer"
+					action="#{nezController.supprimerNez(1)}"></h:commandButton>
+		</p:column>		
+	</p:dataTable>
+	<a href="#/nezadd">Ajouter un nouveau nez</a>
+</form>

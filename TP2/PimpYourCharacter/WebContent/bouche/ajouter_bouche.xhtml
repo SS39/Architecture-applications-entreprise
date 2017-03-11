@@ -1,0 +1,26 @@
+
+<form xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/composite">
+	<h1>
+		<h:outputText value="Pimp Your Character" />
+	</h1>
+	<h2>
+		<h:outputText value="Ajouter une Bouche" />
+	</h2>
+	<br />
+	<h:panelGrid columns="2" cellpadding="5">
+		<p:outputLabel value="Forme" />
+		<p:inputText value="#{boucheController.bouche.forme}"></p:inputText>
+		<p:outputLabel value="Largeur" />
+		<p:inputText value="#{boucheController.bouche.largeur}"></p:inputText>
+		<p:outputLabel value="Hauteur" />
+		<p:inputText value="#{boucheController.bouche.hauteur}"></p:inputText>
+		<p:outputLabel value="Profondeur" />
+		<p:inputText value="#{boucheController.bouche.profondeur}"></p:inputText>
+		<p:outputLabel value="Couleur" />
+		<p:inputText value="#{boucheController.bouche.couleur}"></p:inputText>
+		<p:commandButton value="Ajouter"
+			action="#{boucheController.ajouterBouche(boucheController.bouche)}"></p:commandButton>
+	</h:panelGrid>
+</form>
