@@ -1,0 +1,72 @@
+<form xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+	<h1>
+		<h:outputText value="Pimp Your Character" />
+	</h1>
+	<h2>
+		<h:outputText value="Liste des Tetes" />
+	</h2>
+	<br />
+	<p:dataTable value="#{teteController.tetes}" var="tete" border="1">
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="ID" />
+			</f:facet>
+			<h:outputText value="#{tete.idTete}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="Largeur" />
+			</f:facet>
+			<h:outputText value="#{tete.largeur}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="Hauteur" />
+			</f:facet>
+			<h:outputText value="#{tete.hauteur}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="Forme" />
+			</f:facet>
+			<h:outputText value="#{tete.forme}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="ID Nez" />
+			</f:facet>
+			<h:outputText value="#{tete.nez}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="ID Bouche" />
+			</f:facet>
+			<h:outputText value="#{tete.bouche}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="ID Yeux" />
+			</f:facet>
+			<h:outputText value="#{tete.yeux}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="" />
+			</f:facet>
+			<h:commandButton action="modifier_tete" value="modifier"></h:commandButton>
+		</p:column>
+		<f:facet name="footer">
+			<p:row>
+				<a href="./ajouter_tete.xhtml">Ajouter nouvelle Tête</a>
+			</p:row>
+			<p:row>
+				<p:commandButton value="Supprimer"
+					action="#{teteController.supprimerTete(3)}"></p:commandButton>
+			</p:row>
+		</f:facet>
+	</p:dataTable>
+</form>

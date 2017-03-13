@@ -3,7 +3,7 @@ var pimpApp = angular.module('pimp', ['ngRoute', 'ngAnimate'])
 pimpApp.config(function($routeProvider){
 	$routeProvider
 		.when('/', {
-			templateUrl : 'home.html',
+			templateUrl : '/index.xhtml',
 		})
 		.when('/tete', {
 			templateUrl : './tete/home_tete.xhtml',

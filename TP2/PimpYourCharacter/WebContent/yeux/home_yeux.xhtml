@@ -7,60 +7,72 @@
 		<h:outputText value="Pimp Your Character" />
 	</h1>
 	<h2>
-		<h:outputText value="Liste des Nez" />
+		<h:outputText value="Liste des Yeux" />
 	</h2>
 	<br />
-	<p:dataTable value="#{nezController.nez}" var="nez" border="1">
+	<p:dataTable value="#{yeuxController.listYeux}" var="yeux" border="1">
 		<p:column>
 			<f:facet name="header">
 				<h:outputText value="ID" />
 			</f:facet>
-			<h:outputText value="#{nez.idNez}" />
+			<h:outputText value="#{yeux.idYeux}" />
 		</p:column>
 		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Forme" />
 			</f:facet>
-			<h:outputText value="#{nez.forme}" />
+			<h:outputText value="#{yeux.forme}" />
 		</p:column>
 		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Largeur" />
 			</f:facet>
-			<h:outputText value="#{nez.largeur}" />
+			<h:outputText value="#{yeux.largeur}" />
 		</p:column>
 		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Hauteur" />
 			</f:facet>
-			<h:outputText value="#{nez.hauteur}" />
+			<h:outputText value="#{yeux.hauteur}" />
 		</p:column>
 		<p:column>
 			<f:facet name="header">
 				<h:outputText value="Profondeur" />
 			</f:facet>
-			<h:outputText value="#{nez.profondeur}" />
+			<h:outputText value="#{yeux.profondeur}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="Ecartement" />
+			</f:facet>
+			<h:outputText value="#{yeux.ecartement}" />
 		</p:column>
 		<p:column>
 			<f:facet name="header">
 				<h:outputText value="ID Couleur" />
 			</f:facet>
-			<h:outputText value="#{nez.couleur}" />
+			<h:outputText value="#{yeux.couleur}" />
 		</p:column>
 		<p:column>
 			<f:facet name="header">
 				<h:outputText value="" />
 			</f:facet>
-			<h:commandButton action="modifier_nez" value="modifier"></h:commandButton>
+			<h:commandButton action="modifier_yeux" value="modifier"></h:commandButton>
 		</p:column>
 
 		<p:column>
 			<f:facet name="header">
 				<h:outputText value="" />
 			</f:facet>
-			<h:commandButton value="Supprimer"
-				action="#{nezController.supprimerNez(1)}"></h:commandButton>
+			<p:row>
+				<p:commandButton value="Supprimer"
+					action="#{yeuxController.supprimerYeux(1)}"></p:commandButton>
+			</p:row>
 		</p:column>
+		<f:facet name="footer">
+			<p:row>
+				<a href="./ajouter_yeux.xhtml">Ajouter nouveaux yeux</a>
+			</p:row>
+		</f:facet>
 	</p:dataTable>
-	<a href="#/nezadd">Ajouter un nouveau nez</a>
 </form>

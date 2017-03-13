@@ -26,8 +26,11 @@ public class CouleurServiceImpl implements CouleurService
 	{
 		Couleur couleur = (Couleur)em.find(Couleur.class, c.getIdCouleur());
 
-		couleur.setLabel(c.getLabel());
-		em.persist(couleur);
+		if (couleur != null)
+		{
+			couleur.setLabel(c.getLabel());
+			em.persist(couleur);
+		}
 	}
 
 	@Override

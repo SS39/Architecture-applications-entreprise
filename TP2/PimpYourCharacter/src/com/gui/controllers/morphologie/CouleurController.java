@@ -30,7 +30,7 @@ public class CouleurController
 	{
 		int j = 0;
 		boolean find = false;
-		List<Couleur> list = getCouleurs();
+		List list = getCouleurs();
 		
 		while (j < list.size() && !find) 
 		{

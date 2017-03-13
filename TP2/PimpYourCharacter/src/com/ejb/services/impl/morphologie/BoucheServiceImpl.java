@@ -26,13 +26,16 @@ public class BoucheServiceImpl implements BoucheService
 	{
 		Bouche bouche = (Bouche)em.find(Bouche.class, b.getIdBouche());
 
-		bouche.setCouleur(b.getCouleur());
-		bouche.setForme(b.getForme());
-		bouche.setHauteur(b.getHauteur());
-		bouche.setProfondeur(b.getProfondeur());
-		bouche.setLargeur(b.getLargeur());
-
-		em.persist(bouche);
+		if (bouche != null)
+		{
+			bouche.setCouleur(b.getCouleur());
+			bouche.setForme(b.getForme());
+			bouche.setHauteur(b.getHauteur());
+			bouche.setProfondeur(b.getProfondeur());
+			bouche.setLargeur(b.getLargeur());
+	
+			em.persist(bouche);
+		}
 	}
 
 	@Override
