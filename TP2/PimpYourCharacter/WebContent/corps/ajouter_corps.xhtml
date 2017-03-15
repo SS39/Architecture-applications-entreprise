@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Ajouter un corps</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h1>
+	        <h:outputText value="Pimp Your Character" />
+	    </h1>
+	    <h2>
+	        <h:outputText value="Ajouter un Corps" />
+	    </h2>
+	    <br/>
+		<h:panelGrid columns="2" cellpadding="5">
+			<p:outputLabel value="Taille" />
+			<p:inputText value="#{corpsController.corps.taille}"></p:inputText>
+			<p:outputLabel value="Bras" />
+			<p:inputText value="#{corpsController.corps.bras}"></p:inputText>
+			<p:outputLabel value="Jambes" />
+			<p:inputText value="#{corpsController.corps.jambes}"></p:inputText>
+			<p:outputLabel value="Buste" />
+			<p:inputText value="#{corpsController.corps.buste}"></p:inputText>
+			<p:outputLabel value="Tete" />
+			<p:inputText value="#{corpsController.corps.tete}"></p:inputText>
+			<p:commandButton value="Ajouter"
+				action="#{corpsController.ajouterCorps(corpsController.corps)}"></p:commandButton>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

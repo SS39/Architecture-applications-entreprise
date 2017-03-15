@@ -14,7 +14,7 @@ public class Jambes implements Serializable
 	@Column(name = "hauteur")
 	private int hauteur;
 	@Column(name = "forme")
-	private int forme;
+	private String forme;
 	
 	public int getIdJambes()
 	{
@@ -36,15 +36,13 @@ public class Jambes implements Serializable
 		hauteur = h;
 	}
 	
-	public int getForme()
+	public String getForme()
 	{
 		return forme;
 	}
 	
-	public void setForme(int f)
+	public void setForme(String f)
 	{
 		forme = f;
 	}
-	
-	
 }

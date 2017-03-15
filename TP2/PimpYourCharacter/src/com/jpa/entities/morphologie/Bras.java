@@ -14,7 +14,7 @@ public class Bras implements Serializable
 	@Column(name = "longueur")
 	private int longueur;
 	@Column(name = "forme")
-	private int forme;
+	private String forme;
 	
 	public int getIdBras()
 	{
@@ -36,12 +36,12 @@ public class Bras implements Serializable
 		longueur = l;
 	}
 	
-	public int getForme()
+	public String getForme()
 	{
 		return forme;
 	}
 	
-	public void setForme(int f)
+	public void setForme(String f)
 	{
 		forme = f;
 	}
