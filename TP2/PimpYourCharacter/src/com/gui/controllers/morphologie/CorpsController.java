@@ -36,13 +36,17 @@ public class CorpsController
 		service.modifierCorps(c);
 	}
 	
-	public void supprimerCorps(int idCorps)
+	public void supprimerCorps(Corps c)
 	{				
-		service.supprimerCorps(idCorps);
+		service.supprimerCorps(c.getId_corps());
 	}
 	
 	public List<Corps> getListCorps()
 	{
 		return service.getListCorps();
+	}
+	
+	public List<Corps> getSearchCorps(String research) {
+		return service.getSearchCorps(research);
 	}
 }

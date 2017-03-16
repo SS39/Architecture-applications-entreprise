@@ -28,7 +28,24 @@ public class CouleurController
 	
 	public void ajouterCouleur(Couleur c)
 	{
-		service.ajouterCouleur(c);
+		int j = 0;
+		boolean find = false;
+		List list = getCouleurs();
+		
+		while (j < list.size() && !find) 
+		{
+			Couleur c2 = (Couleur)list.get(j);
+			if (c.getLabel().equals(c2.getLabel()))
+			{
+				find = true;
+			}
+			j++;
+		}
+		
+		if (!find)
+		{
+			service.ajouterCouleur(c);
+		}
 	}
 	
 	public void modifierCouleur(Couleur c)
@@ -44,5 +61,9 @@ public class CouleurController
 	public List<Couleur> getCouleurs()
 	{
 		return service.getCouleurs();
+	}
+	
+	public List<Couleur> getSearchCouleur(String research) {
+		return service.getSearchCouleurs(research);
 	}
 }

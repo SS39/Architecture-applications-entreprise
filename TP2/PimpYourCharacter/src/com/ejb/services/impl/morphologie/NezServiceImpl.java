@@ -53,4 +53,8 @@ public class NezServiceImpl implements NezService
 	{
 		return (List<Nez>)em.createQuery("from Nez").getResultList();
 	}
+	
+	public List<Nez> getSearchNez(String research) {
+		return (List<Nez>)em.createQuery(research).getResultList();
+	}
 }

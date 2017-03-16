@@ -34,9 +34,9 @@ public class VpiedController
 		vpiedservice.modifierVpied(vp);
 	}
 	
-	public void supprimerVpied(int idVpied)
+	public void supprimerVpied(Vpied vp)
 	{				
-		vpiedservice.supprimerVpied(idVpied);
+		vpiedservice.supprimerVpied(vp.getId_vpied());
 	}
 	
 	public List<Vpied> getVpieds()

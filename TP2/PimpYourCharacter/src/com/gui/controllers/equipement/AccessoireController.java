@@ -36,9 +36,9 @@ public class AccessoireController
 		service.modifierAccessoire(a);
 	}
 	
-	public void supprimerAccessoire(int idAccessoire)
+	public void supprimerAccessoire(Accessoire a)
 	{				
-		service.supprimerAccessoire(idAccessoire);
+		service.supprimerAccessoire(a.getId_accessoire());
 	}
 	
 	public List<Accessoire> getAccessoires()

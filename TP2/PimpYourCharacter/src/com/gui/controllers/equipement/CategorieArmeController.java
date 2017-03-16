@@ -36,9 +36,9 @@ public class CategorieArmeController
 		service.modifierCategorieArme(ca);
 	}
 	
-	public void supprimerCategorieArme(int idCategorieArme)
+	public void supprimerCategorieArme(CategorieArme ca)
 	{				
-		service.supprimerCategorieArme(idCategorieArme);
+		service.supprimerCategorieArme(ca.getId_categorie_arme());
 	}
 	
 	public List<CategorieArme> getCategorieArmes()

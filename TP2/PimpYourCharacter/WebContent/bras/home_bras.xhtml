@@ -1,8 +1,19 @@
-<form xmlns:f="http://java.sun.com/jsf/core"
+<h:form xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html">
+
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" />
+	<!-- load bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.css" />
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
+	<!-- load angular and jquery-->
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js" />
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js" />
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js" />
+
     <h1>
         <h:outputText value="Pimp Your Character" />
     </h1>
@@ -15,7 +26,7 @@
             <f:facet name="header">
                 <h:outputText value="ID"/>
             </f:facet>
-            <h:outputText value="#{bras.idBras}"/>
+            <h:outputText value="#{bras.id_bras}"/>
         </p:column>
         <p:column>
             <f:facet name="header">
@@ -29,18 +40,24 @@
             </f:facet>
             <h:outputText value="#{bras.forme}"/>
         </p:column>
-        <p:column>
-			<f:facet name="header">
-				<h:outputText value="" />
-			</f:facet>
-			<h:commandButton action="#/brasup" value="modifier"></h:commandButton>
+		<p:column>
+			<h:link value="Modifier" outcome="modifier_bras">
+				<f:param id="ID" name="ID" value="#{bras.id_bras}" />
+				<f:param id="longueur" name="longueur" value="#{bras.longueur}" />
+				<f:param id="forme" name="forme" value="#{bras.forme}" />
+			</h:link>
 		</p:column>
 		<p:column>
 			<f:facet name="header">
 				<h:outputText value="" />
 			</f:facet>
-			<h:commandButton action="#{brasController.supprimerBras(brasController.bras.idBras)}" value="supprimer"></h:commandButton>
+			<h:commandButton action="#{brasController.supprimerBras(brasController.bras.id_bras)}" value="supprimer"></h:commandButton>
 		</p:column>
+		<f:facet name="footer">
+			<p:row>
+				<a href="./ajouter_bras.xhtml">Ajouter un nouveau bras</a>
+			</p:row>
+		</f:facet>
 	</p:dataTable>
-	<a href="#/brasadd">Ajouter un nouveau bras</a>
-</form>
+	<a href="../index.xhtml">Retour au menu</a>
+</h:form>

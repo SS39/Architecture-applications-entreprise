@@ -36,13 +36,17 @@ public class BusteController
 		service.modifierBuste(b);
 	}
 	
-	public void supprimerBuste(int idBuste)
+	public void supprimerBuste(Buste b)
 	{				
-		service.supprimerBuste(idBuste);
+		service.supprimerBuste(b.getId_buste());
 	}
 	
 	public List<Buste> getBustes()
 	{
 		return service.getBustes();
+	}
+	
+	public List<Buste> getSearchBustes(String research) {
+		return service.getSearchBustes(research);
 	}
 }

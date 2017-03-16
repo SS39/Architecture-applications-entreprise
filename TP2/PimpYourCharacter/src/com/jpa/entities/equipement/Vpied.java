@@ -14,10 +14,6 @@ import com.jpa.entities.personnage.Personnage;
 @Table(name = "vpied")
 public class Vpied implements Serializable
 {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private int id_vpied;
 	private String label;
 	private int poids;

@@ -10,9 +10,18 @@
 		<h:outputText value="Modifier une Tete" />
 	</h2>
 	<br />
+	<f:metadata>
+		<f:viewParam name="ID" value="#{teteController.tete.id_tete}"></f:viewParam>
+		<f:viewParam name="Forme" value="#{teteController.tete.forme}"></f:viewParam>
+		<f:viewParam name="Largeur" value="#{teteController.tete.largeur}"></f:viewParam>
+		<f:viewParam name="Hauteur" value="#{teteController.tete.hauteur}"></f:viewParam>
+		<f:viewParam name="Nez" value="#{teteController.tete.nez}"></f:viewParam>
+		<f:viewParam name="Bouche" value="#{teteController.tete.bouche}"></f:viewParam>
+		<f:viewParam name="Yeux" value="#{teteController.tete.yeux}"></f:viewParam>
+	</f:metadata>
 	<h:panelGrid columns="2" cellpadding="5">
 		<p:outputLabel value="ID" />
-		<p:inputText value="#{teteController.tete.idTete}"></p:inputText>
+		<p:inputText value="#{teteController.tete.id_tete}"></p:inputText>
 		<p:outputLabel value="Forme" />
 		<p:inputText value="#{teteController.tete.forme}"></p:inputText>
 		<p:outputLabel value="Largeur" />
@@ -27,5 +36,6 @@
 		<p:inputText value="#{teteController.tete.yeux}"></p:inputText>
 		<p:commandButton value="Modifier"
 			action="#{teteController.modifierTete(teteController.tete)}"></p:commandButton>
+			<a href = "./home_tete.xhtml">Retour a la liste</a>
 	</h:panelGrid>
 </form>

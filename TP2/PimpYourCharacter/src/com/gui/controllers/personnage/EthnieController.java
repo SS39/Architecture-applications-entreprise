@@ -36,9 +36,9 @@ public class EthnieController
 		service.modifierEthnie(e);
 	}
 	
-	public void supprimerEthnie(int idEthnie)
+	public void supprimerEthnie(Ethnie e)
 	{				
-		service.supprimerEthnie(idEthnie);
+		service.supprimerEthnie(e.getId_ethnie());
 	}
 	
 	public List<Ethnie> getEthnies()

@@ -52,5 +52,9 @@ public class BusteServiceImpl implements BusteService
 	{
 		return (List<Buste>)em.createQuery("from Buste").getResultList();
 	}
+	
+	public List<Buste> getSearchBustes(String research) {
+		return (List<Buste>)em.createQuery(research).getResultList();
+	}
 
 }

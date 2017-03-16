@@ -49,5 +49,9 @@ public class CouleurServiceImpl implements CouleurService
 	{
 		return (List<Couleur>)em.createQuery("from Couleur").getResultList();
 	}
+	
+	public List<Couleur> getSearchCouleurs(String research) {
+		return (List<Couleur>)em.createQuery(research).getResultList();
+	}
 
 }

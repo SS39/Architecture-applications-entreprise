@@ -36,9 +36,9 @@ public class PositionController
 		service.modifierPosition(p);
 	}
 	
-	public void supprimerPosition(int idPosition)
+	public void supprimerPosition(Position p)
 	{				
-		service.supprimerPosition(idPosition);
+		service.supprimerPosition(p.getId_position());
 	}
 	
 	public List<Position> getPositions()

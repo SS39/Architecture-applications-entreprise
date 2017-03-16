@@ -10,14 +10,20 @@
 	        <h:outputText value="Modifier une paire de Jambes" />
 	    </h2>
 	    <br/>
+	    <f:metadata>
+			<f:viewParam name="ID" value="#{jambesController.jambes.id_jambe}"></f:viewParam>
+			<f:viewParam name="Hauteur" value="#{jambesController.jambes.hauteur}"></f:viewParam>
+			<f:viewParam name="Forme" value="#{jambesController.jambes.forme}"></f:viewParam>
+		</f:metadata>
 	    <h:panelGrid columns="2" cellpadding="5">
 	    	<p:outputLabel value="ID" />
-			<p:inputText value="#{jambesController.jambes.idJambes}"></p:inputText>
+			<p:inputText value="#{jambesController.jambes.id_jambe}"></p:inputText>
 			<p:outputLabel value="Hauteur" />
 			<p:inputText value="#{jambesController.jambes.hauteur}"></p:inputText>
 			<p:outputLabel value="Forme" />
 			<p:inputText value="#{jambesController.jambes.forme}"></p:inputText>
 			<h:commandButton value="Modifier"
 				action="#{jambesController.modifierJambes(jambesController.jambes)}"></h:commandButton>
+				<a href = "./home_jambes.xhtml">Retour a la liste</a>
 		</h:panelGrid>
 </form>

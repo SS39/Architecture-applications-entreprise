@@ -36,9 +36,9 @@ public class CategorieAccessoireController
 		service.modifierCategorieAccessoire(ca);
 	}
 	
-	public void supprimerCategorieAccessoire(int idCategorieAccessoire)
+	public void supprimerCategorieAccessoire(CategorieAccessoire ca)
 	{				
-		service.supprimerCategorieAccessoire(idCategorieAccessoire);
+		service.supprimerCategorieAccessoire(ca.getId_categorie_accessoire());
 	}
 	
 	public List<CategorieAccessoire> getCategorieAccessoires()

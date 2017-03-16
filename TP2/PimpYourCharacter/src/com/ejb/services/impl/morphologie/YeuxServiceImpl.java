@@ -55,5 +55,9 @@ public class YeuxServiceImpl implements YeuxService
 	{
 		return (List<Yeux>)em.createQuery("from Yeux").getResultList();
 	}
+	
+	public List<Yeux> getSearchYeux(String research) {
+		return (List<Yeux>)em.createQuery(research).getResultList();
+	}
 
 }

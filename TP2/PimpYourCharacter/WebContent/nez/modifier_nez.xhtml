@@ -10,9 +10,16 @@
 		<h:outputText value="Modifier un Nez" />
 	</h2>
 	<br />
+	<f:metadata>
+		<f:viewParam name="ID" value="#{nezController.nez.id_nez}"></f:viewParam>
+		<f:viewParam name="Forme" value="#{nezController.nez.forme}"></f:viewParam>
+		<f:viewParam name="Largeur" value="#{nezController.nez.largeur}"></f:viewParam>
+		<f:viewParam name="Hauteur" value="#{nezController.nez.hauteur}"></f:viewParam>
+		<f:viewParam name="Profondeur" value="#{nezController.nez.profondeur}"></f:viewParam>
+	</f:metadata>
 	<h:panelGrid columns="2" cellpadding="5">
 		<p:outputLabel value="ID" />
-		<p:inputText value="#{nezController.nez.idNez}"></p:inputText>
+		<p:inputText value="#{nezController.nez.id_nez}"></p:inputText>
 		<p:outputLabel value="Forme" />
 		<p:inputText value="#{nezController.nez.forme}"></p:inputText>
 		<p:outputLabel value="Largeur" />
@@ -23,5 +30,6 @@
 		<p:inputText value="#{nezController.nez.profondeur}"></p:inputText>
 		<p:commandButton value="Modifier"
 			action="#{nezController.modifierNez(nezController.nez)}"></p:commandButton>
+		<a href="./home_nez.xhtml">Retour a la liste</a>
 	</h:panelGrid>
 </form>

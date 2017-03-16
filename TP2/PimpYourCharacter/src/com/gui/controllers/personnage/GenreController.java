@@ -36,9 +36,9 @@ public class GenreController
 		service.modifierGenre(g);
 	}
 	
-	public void supprimerGenre(int idGenre)
+	public void supprimerGenre(Genre g)
 	{				
-		service.supprimerGenre(idGenre);
+		service.supprimerGenre(g.getId_genre());
 	}
 	
 	public List<Genre> getGenres()

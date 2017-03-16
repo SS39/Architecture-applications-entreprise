@@ -10,4 +10,5 @@ public interface BusteService
 	public void modifierBuste(Buste b);
 	public void supprimerBuste(int id);
 	public List<Buste> getBustes();
+	public List<Buste> getSearchBustes(String research);
 }

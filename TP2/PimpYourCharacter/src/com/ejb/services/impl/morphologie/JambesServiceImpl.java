@@ -51,4 +51,9 @@ public class JambesServiceImpl implements JambesService
 	{
 		return (List<Jambes>)em.createQuery("from Jambes").getResultList();
 	}
+	
+
+	public List<Jambes> getSearchJambes(String research) {
+		return (List<Jambes>)em.createQuery(research).getResultList();
+	}
 }

@@ -34,9 +34,9 @@ public class VhautController
 		vhautservice.modifierVhaut(vh);
 	}
 	
-	public void supprimerVhaut(int idVhaut)
+	public void supprimerVhaut(Vhaut vh)
 	{				
-		vhautservice.supprimerVhaut(idVhaut);
+		vhautservice.supprimerVhaut(vh.getId_vhaut());
 	}
 	
 	public List<Vhaut> getVhauts()

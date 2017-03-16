@@ -36,9 +36,9 @@ public class ArmeController
 		service.modifierArme(a);
 	}
 	
-	public void supprimerArme(int idArme)
+	public void supprimerArme(Arme a)
 	{				
-		service.supprimerArme(idArme);
+		service.supprimerArme(a.getId_arme());
 	}
 	
 	public List<Arme> getArmes()

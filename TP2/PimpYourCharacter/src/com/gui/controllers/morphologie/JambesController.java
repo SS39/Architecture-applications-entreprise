@@ -36,13 +36,17 @@ public class JambesController
 		service.modifierJambes(j);
 	}
 	
-	public void supprimerJambes(int idJambes)
+	public void supprimerJambes(Jambes j)
 	{				
-		service.supprimerJambes(idJambes);
+		service.supprimerJambes(j.getId_jambe());
 	}
 	
 	public List<Jambes> getListJambes()
 	{
 		return service.getListJambes();
+	}
+	
+	public List<Jambes> getSearchJambes(String research) {
+		return service.getSearchJambes(research);
 	}
 }

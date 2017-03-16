@@ -1,8 +1,26 @@
-<form xmlns:f="http://java.sun.com/jsf/core"
+<h:form xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html">
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" />
+	<!-- load bootstrap -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" />
+	<link rel="stylesheet"
+		href="https://netdna.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.css" />
+	<script type="text/javascript"
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
+	<!-- load angular and jquery-->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js" />
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js" />
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js" />
+
 	<h1>
 		<h:outputText value="Pimp Your Character" />
 	</h1>
@@ -15,7 +33,7 @@
 			<f:facet name="header">
 				<h:outputText value="ID" />
 			</f:facet>
-			<h:outputText value="#{yeux.idYeux}" />
+			<h:outputText value="#{yeux.id_yeux}" />
 		</p:column>
 		<p:column>
 			<f:facet name="header">
@@ -49,22 +67,34 @@
 		</p:column>
 		<p:column>
 			<f:facet name="header">
-				<h:outputText value="ID Couleur" />
+				<h:outputText value="Couleur" />
 			</f:facet>
-			<h:outputText value="#{yeux.couleur}" />
+			<h:outputText value="#{yeux.couleur.label}" />
+		</p:column>
+		<p:column>
+			<h:link value="Modifier" outcome="modifier_yeux">
+				<f:param id="ID" name="ID" value="#{yeux.id_yeux}" />
+				<f:param id="Forme" name="Forme" value="#{yeux.forme}" />
+				<f:param id="Largeur" name="Largeur" value="#{yeux.largeur}" />
+				<f:param id="Hauteur" name="Hauteur" value="#{yeux.hauteur}" />
+				<f:param id="Profondeur" name="Profondeur" value="#{yeux.profondeur}" />
+				<f:param id="Ecartement" name="Ecartement" value="#{yeux.ecartement}" />
+				<f:param id="Couleur" name="Couleur" value="#{yeux.couleur.label}" />
+			</h:link>
 		</p:column>
 		<p:column>
 			<f:facet name="header">
 				<h:outputText value="" />
 			</f:facet>
-			<h:commandButton action="#/yeuxup" value="modifier"></h:commandButton>
+			<h:commandButton
+				action="#{yeuxController.supprimerYeux(yeuxController.yeux.id_yeux)}"
+				value="supprimer"></h:commandButton>
 		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="" />
-			</f:facet>
-			<h:commandButton action="#{yeuxController.supprimerYeux(yeuxController.yeux.idYeux)}" value="supprimer"></h:commandButton>
-		</p:column>
+		<f:facet name="footer">
+			<p:row>
+				<a href="./ajouter_yeux.xhtml">Ajouter de nouveaux yeux</a>
+			</p:row>
+		</f:facet>
 	</p:dataTable>
-	<a href="#/yeuxadd">Ajouter Nouvelle couleur</a>
-</form>
+	<a href="../index.xhtml">Retour au menu</a>
+</h:form>

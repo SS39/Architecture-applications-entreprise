@@ -10,4 +10,5 @@ public interface CorpsService
 	public void modifierCorps(Corps c);
 	public void supprimerCorps(int id);
 	public List<Corps> getListCorps();
+	public List<Corps> getSearchCorps(String research);
 }

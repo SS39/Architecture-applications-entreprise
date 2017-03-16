@@ -55,4 +55,8 @@ public class CorpsServiceImpl implements CorpsService
 	{
 		return (List<Corps>)em.createQuery("from Corps").getResultList();
 	}
+	
+	public List<Corps> getSearchCorps(String research) {
+		return (List<Corps>)em.createQuery(research).getResultList();
+	}
 }

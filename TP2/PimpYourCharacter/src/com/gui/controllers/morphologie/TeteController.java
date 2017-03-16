@@ -36,13 +36,17 @@ public class TeteController
 		service.modifierTete(t);
 	}
 	
-	public void supprimerTete(int idTete)
+	public void supprimerTete(Tete t)
 	{				
-		service.supprimerTete(idTete);
+		service.supprimerTete(t.getId_tete());
 	}
 	
 	public List<Tete> getTetes()
 	{
 		return service.getTetes();
+	}
+	
+	public List<Tete> getSearchTetes(String research) {
+		return service.getSearchTetes(research);
 	}
 }

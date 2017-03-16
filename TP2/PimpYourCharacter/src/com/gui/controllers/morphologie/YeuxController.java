@@ -36,13 +36,18 @@ public class YeuxController
 		service.modifierYeux(y);
 	}
 	
-	public void supprimerYeux(int idYeux)
+	public void supprimerYeux(Yeux y)
 	{				
-		service.supprimerYeux(idYeux);
+		service.supprimerYeux(y.getId_yeux());
 	}
 	
 	public List<Yeux> getListYeux()
 	{
 		return service.getListYeux();
 	}
+	
+	public List<Yeux> getSearchYeux(String research) {
+		return service.getSearchYeux(research);
+	}
+
 }

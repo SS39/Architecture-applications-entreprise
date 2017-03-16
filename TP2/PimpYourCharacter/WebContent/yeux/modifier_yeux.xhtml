@@ -10,9 +10,19 @@
 		<h:outputText value="Modifier des yeux" />
 	</h2>
 	<br />
+	<f:metadata>
+		<f:viewParam name="ID" value="#{yeuxController.yeux.id_yeux}"></f:viewParam>
+		<f:viewParam name="Forme" value="#{yeuxController.yeux.forme}"></f:viewParam>
+		<f:viewParam name="Largeur" value="#{yeuxController.yeux.largeur}"></f:viewParam>
+		<f:viewParam name="Hauteur" value="#{yeuxController.yeux.hauteur}"></f:viewParam>
+		<f:viewParam name="Largeur" value="#{yeuxController.yeux.largeur}"></f:viewParam>
+		<f:viewParam name="Profondeur" value="#{yeuxController.yeux.profondeur}"></f:viewParam>
+		<f:viewParam name="Ecartement" value="#{yeuxController.yeux.ecartement}"></f:viewParam>
+		<f:viewParam name="Couleur" value="#{yeuxController.yeux.couleur.label}"></f:viewParam>
+	</f:metadata>
 	<h:panelGrid columns="2" cellpadding="5">
 		<p:outputLabel value="ID" />
-		<p:inputText value="#{yeuxController.yeux.idYeux}"></p:inputText>
+		<p:inputText value="#{yeuxController.yeux.id_yeux}"></p:inputText>
 		<p:outputLabel value="Forme" />
 		<p:inputText value="#{yeuxController.yeux.forme}"></p:inputText>
 		<p:outputLabel value="Largeur" />
@@ -24,8 +34,9 @@
 		<p:outputLabel value="Ecartement" />
 		<p:inputText value="#{yeuxController.yeux.ecartement}"></p:inputText>
 		<p:outputLabel value="Couleur" />
-		<p:inputText value="#{yeuxController.yeux.couleur}"></p:inputText>
+		<p:inputText value="#{yeuxController.yeux.couleur.label}"></p:inputText>
 		<p:commandButton value="Modifier"
 			action="#{yeuxController.modifierYeux(yeuxController.yeux)}"></p:commandButton>
+			<a href = "./home_yeux.xhtml">Retour a la liste</a>
 	</h:panelGrid>
 </form>

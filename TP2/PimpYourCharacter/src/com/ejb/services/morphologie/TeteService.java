@@ -10,4 +10,5 @@ public interface TeteService
 	public void modifierTete(Tete t);
 	public void supprimerTete(int id);
 	public List<Tete> getTetes();
+	public List<Tete> getSearchTetes(String research);
 }

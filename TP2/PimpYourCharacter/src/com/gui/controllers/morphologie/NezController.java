@@ -36,13 +36,17 @@ public class NezController
 		service.modifierNez(n);
 	}
 	
-	public void supprimerNez(int idNez)
+	public void supprimerNez(Nez n)
 	{				
-		service.supprimerNez(idNez);
+		service.supprimerNez(n.getId_nez());
 	}
 	
 	public List<Nez> getListNez()
 	{
 		return service.getListNez();
+	}
+	
+	public List<Nez> getSearchNez(String research) {
+		return service.getSearchNez(research);
 	}
 }

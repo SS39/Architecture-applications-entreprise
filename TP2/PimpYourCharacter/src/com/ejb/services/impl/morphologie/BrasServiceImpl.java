@@ -51,5 +51,9 @@ public class BrasServiceImpl implements BrasService
 	{
 		return (List<Bras>)em.createQuery("from Bras").getResultList();
 	}
+	
+	public List<Bras> getSearchBras(String research) {
+		return (List<Bras>)em.createQuery(research).getResultList();
+	}
 
 }

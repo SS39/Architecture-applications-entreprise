@@ -10,4 +10,5 @@ public interface YeuxService
 	public void modifierYeux(Yeux y);
 	public void supprimerYeux(int id);
 	public List<Yeux> getListYeux();
+	public List<Yeux> getSearchYeux(String research);
 }

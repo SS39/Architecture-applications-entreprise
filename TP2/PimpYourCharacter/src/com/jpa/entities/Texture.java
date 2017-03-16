@@ -40,4 +40,8 @@ public class Texture implements Serializable {
 	{
 		label = l;
 	}
+	
+	public String toString() {
+		return "Id : "+this.id_texture+", Label : "+this.label;
+	}
 }

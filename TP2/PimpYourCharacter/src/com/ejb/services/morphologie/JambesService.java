@@ -10,4 +10,5 @@ public interface JambesService
 	public void modifierJambes(Jambes j);
 	public void supprimerJambes(int id);
 	public List<Jambes> getListJambes();
+	public List<Jambes> getSearchJambes(String research);
 }

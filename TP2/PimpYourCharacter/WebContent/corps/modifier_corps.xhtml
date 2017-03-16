@@ -3,27 +3,36 @@
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html">
-		<h1>
-	        <h:outputText value="Pimp Your Character" />
-	    </h1>
-	    <h2>
-	        <h:outputText value="Modifier un Corps" />
-	    </h2>
-	    <br/>
-	    <h:panelGrid columns="2" cellpadding="5">
-	    	<p:outputLabel value="ID" />
-			<p:inputText value="#{corpsController.corps.idCorps}"></p:inputText>
-			<p:outputLabel value="Taille" />
-			<p:inputText value="#{corpsController.corps.taille}"></p:inputText>
-			<p:outputLabel value="Bras" />
-			<p:inputText value="#{corpsController.corps.bras}"></p:inputText>
-			<p:outputLabel value="Jambes" />
-			<p:inputText value="#{corpsController.corps.jambes}"></p:inputText>
-			<p:outputLabel value="Buste" />
-			<p:inputText value="#{corpsController.corps.buste}"></p:inputText>
-			<p:outputLabel value="Tete" />
-			<p:inputText value="#{corpsController.corps.tete}"></p:inputText>
-			<h:commandButton value="Modifier"
-				action="#{corpsController.modifierCorps(corpsController.corps)}"></h:commandButton>
-		</h:panelGrid>
+	<h1>
+		<h:outputText value="Pimp Your Character" />
+	</h1>
+	<h2>
+		<h:outputText value="Modifier un corps" />
+	</h2>
+	<br />
+	<f:metadata>
+		<f:viewParam name="ID" value="#{corpsController.corps.id_corps}"></f:viewParam>
+		<f:viewParam name="Taille" value="#{corpsController.corps.taille}"></f:viewParam>
+		<f:viewParam name="Bras" value="#{corpsController.corps.bras}"></f:viewParam>
+		<f:viewParam name="Jambes" value="#{corpsController.corps.jambes}"></f:viewParam>
+		<f:viewParam name="Buste" value="#{corpsController.corps.buste}"></f:viewParam>
+		<f:viewParam name="Tete" value="#{corpsController.corps.tete}"></f:viewParam>
+	</f:metadata>
+	<h:panelGrid columns="2" cellpadding="5">
+		<p:outputLabel value="ID" />
+		<p:inputText value="#{corpsController.corps.id_corps}"></p:inputText>
+		<p:outputLabel value="Taille" />
+		<p:inputText value="#{corpsController.corps.taille}"></p:inputText>
+		<p:outputLabel value="Bras" />
+		<p:inputText value="#{corpsController.corps.bras}"></p:inputText>
+		<p:outputLabel value="Jambes" />
+		<p:inputText value="#{corpsController.corps.jambes}"></p:inputText>
+		<p:outputLabel value="Buste" />
+		<p:inputText value="#{corpsController.corps.buste}"></p:inputText>
+		<p:outputLabel value="Tete" />
+		<p:inputText value="#{corpsController.corps.tete}"></p:inputText>
+		<h:commandButton value="Modifier"
+			action="#{corpsController.modifierCorps(corpsController.corps)}"></h:commandButton>
+		<a href="./home_corps">Retour a la liste</a>
+	</h:panelGrid>
 </form>

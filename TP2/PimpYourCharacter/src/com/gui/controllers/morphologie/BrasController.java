@@ -36,13 +36,17 @@ public class BrasController
 		service.modifierBras(b);
 	}
 	
-	public void supprimerBras(int idBras)
+	public void supprimerBras(Bras b)
 	{				
-		service.supprimerBras(idBras);
+		service.supprimerBras(b.getId_bras());
 	}
 	
 	public List<Bras> getListBras()
 	{
 		return service.getListBras();
+	}
+	
+	public List<Bras> getSearchBras(String research) {
+		return service.getSearchBras(research);
 	}
 }

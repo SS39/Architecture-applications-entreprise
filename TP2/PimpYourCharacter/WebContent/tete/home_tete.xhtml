@@ -1,8 +1,19 @@
-<form xmlns:f="http://java.sun.com/jsf/core"
+<h:form xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html">
+
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" />
+	<!-- load bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.css" />
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
+	<!-- load angular and jquery-->
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js" />
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js" />
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js" />
+
 	<h1>
 		<h:outputText value="Pimp Your Character" />
 	</h1>
@@ -15,7 +26,7 @@
 			<f:facet name="header">
 				<h:outputText value="ID" />
 			</f:facet>
-			<h:outputText value="#{tete.idTete}" />
+			<h:outputText value="#{tete.id_tete}" />
 		</p:column>
 		<p:column>
 			<f:facet name="header">
@@ -37,34 +48,44 @@
 		</p:column>
 		<p:column>
 			<f:facet name="header">
-				<h:outputText value="ID Nez" />
+				<h:outputText value="Nez" />
 			</f:facet>
 			<h:outputText value="#{tete.nez}" />
 		</p:column>
 		<p:column>
 			<f:facet name="header">
-				<h:outputText value="ID Bouche" />
+				<h:outputText value="Bouche" />
 			</f:facet>
 			<h:outputText value="#{tete.bouche}" />
 		</p:column>
 		<p:column>
 			<f:facet name="header">
-				<h:outputText value="ID Yeux" />
+				<h:outputText value="Yeux" />
 			</f:facet>
 			<h:outputText value="#{tete.yeux}" />
 		</p:column>
 		<p:column>
-			<f:facet name="header">
-				<h:outputText value="" />
-			</f:facet>
-			<h:commandButton action="#/teteup" value="modifier"></h:commandButton>
+			<h:link value="Modifier" outcome="modifier_tete">
+				<f:param id="ID" name="ID" value="#{tete.id_tete}" />
+				<f:param id="Largeur" name="Largeur" value="#{tete.largeur}" />
+				<f:param id="Hauteur" name="Hauteur" value="#{tete.hauteur}" />
+				<f:param id="Forme" name="Forme" value="#{tete.forme}" />
+				<f:param id="Nez" name="Nez" value="#{tete.nez}" />
+				<f:param id="Bouche" name="Bouche" value="#{tete.bouche}" />
+				<f:param id="Yeux" name="Yeux" value="#{tete.yeux}" />
+			</h:link>
 		</p:column>
 		<p:column>
 			<f:facet name="header">
 				<h:outputText value="" />
 			</f:facet>
-			<h:commandButton action="#{teteController.supprimerTete(teteController.tete.idTete)}" value="supprimer"></h:commandButton>
+			<h:commandButton action="#{teteController.supprimerTete(teteController.tete.id_tete)}" value="supprimer"></h:commandButton>
 		</p:column>
+	<f:facet name="footer">
+			<p:row>
+				<a href="./ajouter_tete.xhtml">Ajouter une nouvelle tete</a>
+			</p:row>
+		</f:facet>
 	</p:dataTable>
-	<a href="#/teteadd">Ajouter Nouvelle Tete</a>
-</form>
+	<a href="../index.xhtml">Retour au menu</a>
+</h:form>

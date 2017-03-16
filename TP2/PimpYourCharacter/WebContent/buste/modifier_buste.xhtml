@@ -1,8 +1,18 @@
-<form xmlns:f="http://java.sun.com/jsf/core"
+<h:form xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html">
+	
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" />
+	<!-- load bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.css" />
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
+	<!-- load angular and jquery-->
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js" />
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js" />
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js" />
 		<h1>
 	        <h:outputText value="Pimp Your Character" />
 	    </h1>
@@ -10,9 +20,15 @@
 	        <h:outputText value="Modifier un Buste" />
 	    </h2>
 	    <br/>
+	    <f:metadata>
+			<f:viewParam name="ID" value="#{busteController.buste.id_buste}"></f:viewParam>
+			<f:viewParam name="Hauteur" value="#{busteController.buste.hauteur}"></f:viewParam>
+			<f:viewParam name="Largeur" value="#{busteController.buste.largeur}"></f:viewParam>
+			<f:viewParam name="Corpulence" value="#{busteController.buste.corpulence}"></f:viewParam>
+		</f:metadata>
 	    <h:panelGrid columns="2" cellpadding="5">
 	    	<p:outputLabel value="ID" />
-			<p:inputText value="#{busteController.buste.idBuste}"></p:inputText>
+			<p:inputText value="#{busteController.buste.id_buste}"></p:inputText>
 			<p:outputLabel value="Hauteur" />
 			<p:inputText value="#{busteController.buste.hauteur}"></p:inputText>
 			<p:outputLabel value="Largeur" />
@@ -21,5 +37,6 @@
 			<p:inputText value="#{busteController.buste.corpulence}"></p:inputText>
 			<h:commandButton value="Modifier"
 				action="#{busteController.modifierBuste(busteController.buste)}"></h:commandButton>
+				<a href = "./home_buste.xhtml">retour a la liste</a>
 		</h:panelGrid>
-</form>
+</h:form>

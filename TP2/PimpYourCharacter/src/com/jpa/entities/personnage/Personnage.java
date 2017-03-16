@@ -20,10 +20,6 @@ import com.jpa.entities.equipement.Vhaut;
 @Table(name = "personnage")
 public class Personnage implements Serializable
 {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private int id_personnage;
 	private String nom;
 	private int age;

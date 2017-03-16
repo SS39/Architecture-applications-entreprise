@@ -8,10 +8,6 @@ import javax.persistence.*;
 @Table(name = "tete")
 public class Tete implements Serializable
 {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private int id_tete;
 	private String forme;
 	private int largeur;
@@ -26,7 +22,17 @@ public class Tete implements Serializable
 		this.bouche = new Bouche();
 		this.yeux = new Yeux();
 	}
-
+	
+	public Tete(int id_tete, String forme, int largeur, int hauteur, Nez nez, Bouche bouche, Yeux yeux) {
+		this.id_tete = id_tete;
+		this.forme = forme;
+		this.largeur = largeur;
+		this.hauteur = hauteur;
+		this.nez = nez;
+		this.bouche = bouche;
+		this.yeux = yeux;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getId_tete()
@@ -100,5 +106,41 @@ public class Tete implements Serializable
 
 	public void setYeux(Yeux yeux) {
 		this.yeux = yeux;
+	}
+	
+	public String toString() {
+		return 	"Id : "+this.id_tete+", Forme : "+this.forme+", Largeur : "+this.largeur+", Hauteur : "+this.hauteur+", Nez : "+this.nez.getId_nez()+", Bouche : "+this.bouche.getId_bouche()+", Yeux : "+this.yeux.getId_yeux();
+	}
+	
+	public String toQuery() {
+		String rep = null;
+		
+		if (!(this.id_tete==-1) || !(this.forme == null) || !(this.largeur==-1) || !(this.hauteur == -1) || !(this.nez==null) || !(this.bouche == null) || !(this.yeux == null)) {
+			rep ="from Tete where" ;
+			if (!(this.id_tete==-1)) {
+				rep+=" id_tete="+this.id_tete+" and";
+			}
+			if (!(this.forme == null)) {
+				rep+=" forme="+this.forme+" and";
+			}
+			if (!(this.largeur==-1)) {
+				rep+=" largeur="+this.largeur+" and";
+			}
+			if (!(this.hauteur == -1)) {
+				rep+=" hauteur="+this.hauteur+" and";
+			}
+			if (!(this.nez == null)) {
+				rep+=" id_nez="+this.nez.getId_nez()+" and";
+			}
+			if (!(this.bouche == null)) {
+				rep+=" id_bouchee="+this.bouche.getId_bouche()+" and";
+			}
+			if (!(this.yeux == null)) {
+				rep+=" id_yeux="+this.yeux.getId_yeux()+" and";
+			}
+			rep=rep.substring(0, rep.length()-4);
+		}
+		
+		return rep;
 	}
 }

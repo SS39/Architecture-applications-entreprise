@@ -36,9 +36,9 @@ public class BouclierController
 		service.modifierBouclier(b);
 	}
 	
-	public void supprimerBouclier(int idBouclier)
+	public void supprimerBouclier(Bouclier b)
 	{				
-		service.supprimerBouclier(idBouclier);
+		service.supprimerBouclier(b.getId_bouclier());
 	}
 	
 	public List<Bouclier> getBoucliers()

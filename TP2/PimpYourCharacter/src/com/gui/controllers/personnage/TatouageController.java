@@ -36,9 +36,9 @@ public class TatouageController
 		service.modifierTatouage(t);
 	}
 	
-	public void supprimerTatouage(int idTatouage)
+	public void supprimerTatouage(Tatouage t)
 	{				
-		service.supprimerTatouage(idTatouage);
+		service.supprimerTatouage(t.getId_tatouage());
 	}
 	
 	public List<Tatouage> getTatouages()

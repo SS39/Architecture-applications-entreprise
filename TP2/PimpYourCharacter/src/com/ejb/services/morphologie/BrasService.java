@@ -10,4 +10,5 @@ public interface BrasService
 	public void modifierBras(Bras b);
 	public void supprimerBras(int id);
 	public List<Bras> getListBras();
+	public List<Bras> getSearchBras(String research);
 }

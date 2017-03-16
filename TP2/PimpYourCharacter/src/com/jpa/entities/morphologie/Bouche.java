@@ -10,10 +10,6 @@ import com.jpa.entities.Couleur;
 @Table(name = "bouche")
 public class Bouche implements Serializable
 {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private int id_bouche;
 	private String forme;
 	private int largeur;
@@ -24,6 +20,16 @@ public class Bouche implements Serializable
 	public Bouche()
 	{
 		couleur = new Couleur();
+	}
+	
+	
+	public Bouche(int id,String forme,int largeur,int hauteur,int profondeur,Couleur color) {
+		this.id_bouche = id;
+		this.forme = forme;
+		this.largeur = largeur;
+		this.hauteur = hauteur;
+		this.profondeur = profondeur;
+		this.couleur = color;
 	}
 	
 	@Id
@@ -92,6 +98,37 @@ public class Bouche implements Serializable
 	public void setCouleur(Couleur couleur) 
 	{
 		this.couleur = couleur;
+	}
+	
+	public String toString() {
+		return "Id : "+this.id_bouche+", Forme : "+this.forme+", Largeur : "+this.largeur+", Hauteur : "+this.hauteur+", Profondeur : "+this.profondeur+", Couleur : "+this.couleur.getId_couleur();
+	}
+	
+	public String toQuery() {
+		String rep = null;
+		
+		if (!(this.id_bouche == -1) || !(this.forme == null) || !(this.largeur == -1) || !(this.hauteur == -1) || !(this.profondeur == -1) || !(this.couleur == null)) {
+			rep = "from Bouche where ";
+			if (!(this.id_bouche == -1)) {
+				rep+=" id_bouche="+this.id_bouche+" and";
+			}
+			if (!(this.forme == null)) {
+				rep+=" forme="+this.forme+" and";
+			}
+			if (!(this.hauteur == -1)) {
+				rep+=" hauteur="+this.hauteur+" and";
+			}
+			if (!(this.profondeur == -1)) {
+				rep+=" profondeur="+this.profondeur+" and";
+			}
+			if (!(this.couleur == null)) {
+				rep+=" id_couleur="+this.couleur.getId_couleur()+" and";
+			}
+			
+			rep = rep.substring(0, rep.length()-4);
+		}
+		
+		return rep;
 	}
 	
 }

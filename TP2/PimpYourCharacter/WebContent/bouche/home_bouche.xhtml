@@ -1,8 +1,19 @@
-<form xmlns:f="http://java.sun.com/jsf/core"
+<h:form xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html">
+
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" />
+	<!-- load bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.css" />
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
+	<!-- load angular and jquery-->
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js" />
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js" />
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js" />
+
 	<h1>
 		<h:outputText value="Pimp Your Character" />
 	</h1>
@@ -11,56 +22,60 @@
 	</h2>
 	<br />
 	<p:dataTable value="#{boucheController.bouches}" var="bou" border="1">
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="ID" />
-			</f:facet>
-			<h:outputText value="#{bou.idBouche}" />
-		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="Forme" />
-			</f:facet>
-			<h:outputText value="#{bou.forme}" />
-		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="Largeur" />
-			</f:facet>
-			<h:outputText value="#{bou.largeur}" />
-		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="Hauteur" />
-			</f:facet>
-			<h:outputText value="#{bou.hauteur}" />
-		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="Profondeur" />
-			</f:facet>
-			<h:outputText value="#{bou.profondeur}" />
-		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="ID Couleur" />
-			</f:facet>
-			<h:outputText value="#{bou.couleur}" />
-		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="" />
-			</f:facet>
-			<h:commandButton action="modifier_bouche" value="modifier"></h:commandButton>
-		</p:column>
-
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="" />
-			</f:facet>
-			<h:commandButton value="Supprimer"
-				action="#{boucheController.supprimerBouche(boucheController.bouche.idBouche)}"></h:commandButton>
-		</p:column>
-	</p:dataTable>
-	<a href="#/boucheadd">Ajouter nouvelle Bouche</a>
-</form>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="ID"/>
+            </f:facet>
+            <h:outputText value="#{bou.id_bouche}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Forme"/>
+            </f:facet>
+            <h:outputText value="#{bou.forme}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Largeur"/>
+            </f:facet>
+            <h:outputText value="#{bou.largeur}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Hauteur"/>
+            </f:facet>
+            <h:outputText value="#{bou.hauteur}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Profondeur"/>
+            </f:facet>
+            <h:outputText value="#{bou.profondeur}"/>
+        </p:column>
+        <!-- <p:column>
+            <f:facet name="header">
+                <h:outputText value="Couleur"/>
+            </f:facet>
+            <h:outputText value="#{bou.couleur.label}"/>
+        </p:column>-->
+        <p:column>
+            <h:link value="Modifier" outcome="modifier_bouche">
+				<f:param id="ID" name="ID" value="#{bou.id_bouche}"/>
+				<f:param id="Forme" name="Forme" value="#{bou.forme}"/>
+				<f:param id="Largeur" name="Largeur" value="#{bou.largeur}"/>
+				<f:param id="Hauteur" name="Hauteur" value="#{bou.hauteur}"/>
+				<f:param id="Profondeur" name="Profondeur" value="#{bou.profondeur}"/>
+				<!-- f:param id="couleur" name="couleur" value="#{bou.couleur.id_couleur}"/-->
+			</h:link>
+        </p:column>
+         <p:column>
+            <f:facet name="header">
+                <h:outputText value=""/>
+            </f:facet>
+			<h:commandButton action="#{boucheController.supprimerBouche(bou)}" value="Supprimer"></h:commandButton>
+        </p:column>
+        <f:facet name="footer">
+        	<p:row><a href="./ajouter_bouche.xhtml">Ajouter nouvelle Bouche</a></p:row>
+        </f:facet>
+    </p:dataTable>
+</h:form>

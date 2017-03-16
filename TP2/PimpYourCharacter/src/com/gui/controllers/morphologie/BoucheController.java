@@ -6,6 +6,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
 import com.ejb.services.morphologie.BoucheService;
+import com.jpa.entities.Couleur;
 import com.jpa.entities.morphologie.Bouche;
 
 @ManagedBean
@@ -36,13 +37,17 @@ public class BoucheController
 		service.modifierBouche(b);
 	}
 	
-	public void supprimerBouche(int idBouche)
+	public void supprimerBouche(Bouche b)
 	{				
-		service.supprimerBouche(idBouche);
+		service.supprimerBouche(b.getId_bouche());
 	}
 	
 	public List<Bouche> getBouches()
 	{
 		return service.getBouches();
+	}
+	
+	public List<Bouche> getSearchBouches(String research) {
+		return service.getSearchBouches(research);
 	}
 }

@@ -10,4 +10,5 @@ public interface CouleurService
 	public void modifierCouleur(Couleur c);
 	public void supprimerCouleur(int id);
 	public List<Couleur> getCouleurs();
+	public List<Couleur> getSearchCouleurs(String research);
 }

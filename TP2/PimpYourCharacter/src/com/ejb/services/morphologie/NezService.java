@@ -10,4 +10,5 @@ public interface NezService
 	public void modifierNez(Nez n);
 	public void supprimerNez(int id);
 	public List<Nez> getListNez();
+	public List<Nez> getSearchNez(String research);
 }

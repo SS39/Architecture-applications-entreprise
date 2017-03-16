@@ -64,4 +64,7 @@ public class BoucheServiceImpl implements BoucheService
 		return (List<Bouche>)em.createQuery("from Bouche").getResultList();
 	}
 
+	public List<Bouche> getSearchBouches(String research) {
+		return (List<Bouche>)em.createQuery(research).getResultList();
+	}
 }

@@ -9,15 +9,21 @@
 	    <h2>
 	        <h:outputText value="Modifier un Bras" />
 	    </h2>
-	    <br/>
+	    <br/>	
+	    <f:metadata>
+			<f:viewParam name="ID" value="#{brasController.bras.id_bras}"></f:viewParam>
+			<f:viewParam name="longueur" value="#{brasController.bras.longueur}"></f:viewParam>
+			<f:viewParam name="forme" value="#{brasController.bras.forme}"></f:viewParam>
+		</f:metadata>
 	    <h:panelGrid columns="2" cellpadding="5">
 	    	<p:outputLabel value="ID" />
-			<p:inputText value="#{brasController.bras.idBras}"></p:inputText>
+			<p:inputText value="#{brasController.bras.id_bras}"></p:inputText>
 			<p:outputLabel value="Longueur" />
 			<p:inputText value="#{brasController.bras.longueur}"></p:inputText>
 			<p:outputLabel value="Forme" />
 			<p:inputText value="#{brasController.bras.forme}"></p:inputText>
 			<h:commandButton value="Modifier"
 				action="#{brasController.modifierBras(brasController.bras)}"></h:commandButton>
+				<a href = "./home_bras.xhtml">Retour a la liste</a>
 		</h:panelGrid>
 </form>

@@ -55,5 +55,9 @@ public class TeteServiceImpl implements TeteService
 	{
 		return (List<Tete>)em.createQuery("from Tete").getResultList();
 	}
+	
+	public List<Tete> getSearchTetes(String research) {
+		return (List<Tete>)em.createQuery(research).getResultList();
+	}
 
 }
