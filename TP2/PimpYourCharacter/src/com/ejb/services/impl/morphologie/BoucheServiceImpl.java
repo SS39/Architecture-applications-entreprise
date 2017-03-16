@@ -21,9 +21,11 @@ public class BoucheServiceImpl implements BoucheService
 	{
 		Couleur couleur = (Couleur)em.find(Couleur.class, b.getCouleur().getId_couleur());
 		
-		b.setCouleur(couleur);
-		
-		em.persist(b);
+		if (couleur != null)
+		{
+			b.setCouleur(couleur);
+			em.persist(b);
+		}
 	}
 
 	@Override
@@ -37,13 +39,13 @@ public class BoucheServiceImpl implements BoucheService
 			if (couleur != null)
 			{
 				bouche.setCouleur(couleur);
+				bouche.setForme(b.getForme());
+				bouche.setHauteur(b.getHauteur());
+				bouche.setProfondeur(b.getProfondeur());
+				bouche.setLargeur(b.getLargeur());
+		
+				em.persist(bouche);
 			}
-			bouche.setForme(b.getForme());
-			bouche.setHauteur(b.getHauteur());
-			bouche.setProfondeur(b.getProfondeur());
-			bouche.setLargeur(b.getLargeur());
-	
-			em.persist(bouche);
 		}
 	}
 

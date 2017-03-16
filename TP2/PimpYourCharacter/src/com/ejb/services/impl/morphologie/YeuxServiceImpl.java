@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.ejb.services.morphologie.YeuxService;
+import com.jpa.entities.Couleur;
 import com.jpa.entities.morphologie.Yeux;
 
 @Stateless
@@ -18,24 +19,32 @@ public class YeuxServiceImpl implements YeuxService
 	@Override
 	public void ajouterYeux(Yeux y) 
 	{
-		em.persist(y);
+		Couleur couleur = (Couleur)em.find(Couleur.class, y.getCouleur().getId_couleur());
+		if (couleur != null)
+		{
+			y.setCouleur(couleur);
+			em.persist(y);
+		}
 	}
 
 	@Override
 	public void modifierYeux(Yeux y) 
 	{
 		Yeux yeux = (Yeux)em.find(Yeux.class, y.getId_yeux());
-
 		if (yeux != null)
 		{
-			yeux.setForme(y.getForme());
-			yeux.setHauteur(y.getHauteur());
-			yeux.setLargeur(y.getLargeur());
-			yeux.setProfondeur(y.getProfondeur());
-			yeux.setEcartement(y.getEcartement());
-			yeux.setCouleur(y.getCouleur());
-		
-			em.persist(yeux);
+			Couleur couleur = (Couleur)em.find(Couleur.class, y.getCouleur().getId_couleur());
+			if (couleur != null)
+			{
+				yeux.setForme(y.getForme());
+				yeux.setHauteur(y.getHauteur());
+				yeux.setLargeur(y.getLargeur());
+				yeux.setProfondeur(y.getProfondeur());
+				yeux.setEcartement(y.getEcartement());
+				yeux.setCouleur(couleur);
+			
+				em.persist(yeux);
+			}
 		}
 	}
 
