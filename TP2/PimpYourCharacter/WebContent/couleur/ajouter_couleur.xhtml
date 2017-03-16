@@ -13,7 +13,7 @@
 	<h:panelGrid columns="2" cellpadding="5">
 		<p:outputLabel value="Label" />
 		<p:inputText value="#{couleurController.couleur.label}"></p:inputText>
-		<p:commandButton value="Ajouter"
-			action="#{couleurController.ajouterCouleur(couleurController.couleur)}"></p:commandButton>
+		<h:commandButton value="Ajouter"
+			action="#{couleurController.ajouterCouleur(couleurController.couleur.label)}"></h:commandButton>
 	</h:panelGrid>
 </form>

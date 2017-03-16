@@ -57,22 +57,14 @@
 			<f:facet name="header">
 				<h:outputText value="" />
 			</f:facet>
-			<h:commandButton action="modifier_yeux" value="modifier"></h:commandButton>
+			<h:commandButton action="#/yeuxup" value="modifier"></h:commandButton>
 		</p:column>
-
 		<p:column>
 			<f:facet name="header">
 				<h:outputText value="" />
 			</f:facet>
-			<p:row>
-				<p:commandButton value="Supprimer"
-					action="#{yeuxController.supprimerYeux(1)}"></p:commandButton>
-			</p:row>
+			<h:commandButton action="#{yeuxController.supprimerYeux(yeuxController.yeux.idYeux)}" value="supprimer"></h:commandButton>
 		</p:column>
-		<f:facet name="footer">
-			<p:row>
-				<a href="./ajouter_yeux.xhtml">Ajouter nouveaux yeux</a>
-			</p:row>
-		</f:facet>
 	</p:dataTable>
+	<a href="#/yeuxadd">Ajouter Nouvelle couleur</a>
 </form>

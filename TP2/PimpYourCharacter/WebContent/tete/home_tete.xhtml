@@ -57,16 +57,14 @@
 			<f:facet name="header">
 				<h:outputText value="" />
 			</f:facet>
-			<h:commandButton action="modifier_tete" value="modifier"></h:commandButton>
+			<h:commandButton action="#/teteup" value="modifier"></h:commandButton>
 		</p:column>
-		<f:facet name="footer">
-			<p:row>
-				<a href="./ajouter_tete.xhtml">Ajouter nouvelle Tête</a>
-			</p:row>
-			<p:row>
-				<p:commandButton value="Supprimer"
-					action="#{teteController.supprimerTete(3)}"></p:commandButton>
-			</p:row>
-		</f:facet>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="" />
+			</f:facet>
+			<h:commandButton action="#{teteController.supprimerTete(teteController.tete.idTete)}" value="supprimer"></h:commandButton>
+		</p:column>
 	</p:dataTable>
+	<a href="#/teteadd">Ajouter Nouvelle Tete</a>
 </form>

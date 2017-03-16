@@ -28,13 +28,13 @@
 			<f:facet name="header">
 				<h:outputText value="" />
 			</f:facet>
-			<h:commandButton action="modifier_couleur" value="modifier"></h:commandButton>
+			<h:commandButton action="#/couleurup" value="modifier"></h:commandButton>
 		</p:column>
 		<p:column>
 			<f:facet name="header">
 				<h:outputText value="" />
 			</f:facet>
-			<h:commandButton action="supprimer_couleur" value="supprimer"></h:commandButton>
+			<h:commandButton action="#{couleurController.supprimerCouleur(couleurController.couleur.idCouleur)}" value="supprimer"></h:commandButton>
 		</p:column>
 	</p:dataTable>
 	<a href="#/couleuradd">Ajouter Nouvelle couleur</a>

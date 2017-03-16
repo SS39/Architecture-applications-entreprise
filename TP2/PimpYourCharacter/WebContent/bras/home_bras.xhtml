@@ -1,16 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
+<form xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html">
-<h:head>
-	<title>Bras</title>
-</h:head>
-<h:body>
-
-<h:form>
     <h1>
         <h:outputText value="Pimp Your Character" />
     </h1>
@@ -38,16 +30,17 @@
             <h:outputText value="#{bras.forme}"/>
         </p:column>
         <p:column>
-            <f:facet name="header">
-                <h:outputText value=""/>
-            </f:facet>
-			<h:commandButton action="modifier_bras" value="modifier"></h:commandButton>
-        </p:column>
-        <f:facet name="footer">
-        	<p:row><a href="./ajouter_bras.xhtml">Ajouter Nouveau Bras</a></p:row>
-            <p:row><p:commandButton value="Supprimer" action="#{brasController.supprimerBras(1)}"></p:commandButton></p:row>
-        </f:facet>
-    </p:dataTable>
-</h:form>
-</h:body>
-</html>
+			<f:facet name="header">
+				<h:outputText value="" />
+			</f:facet>
+			<h:commandButton action="#/brasup" value="modifier"></h:commandButton>
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="" />
+			</f:facet>
+			<h:commandButton action="#{brasController.supprimerBras(brasController.bras.idBras)}" value="supprimer"></h:commandButton>
+		</p:column>
+	</p:dataTable>
+	<a href="#/brasadd">Ajouter un nouveau bras</a>
+</form>
