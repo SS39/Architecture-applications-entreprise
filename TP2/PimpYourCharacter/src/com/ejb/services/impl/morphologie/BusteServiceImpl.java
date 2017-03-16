@@ -24,7 +24,7 @@ public class BusteServiceImpl implements BusteService
 	@Override
 	public void modifierBuste(Buste b) 
 	{
-		Buste buste = (Buste)em.find(Buste.class, b.getIdBuste());
+		Buste buste = (Buste)em.find(Buste.class, b.getId_buste());
 
 		if (buste != null)
 		{

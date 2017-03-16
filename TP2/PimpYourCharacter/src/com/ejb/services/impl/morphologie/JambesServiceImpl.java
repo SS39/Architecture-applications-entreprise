@@ -24,7 +24,7 @@ public class JambesServiceImpl implements JambesService
 	@Override
 	public void modifierJambes(Jambes j) 
 	{
-		Jambes jambes = (Jambes)em.find(Jambes.class, j.getIdJambes());
+		Jambes jambes = (Jambes)em.find(Jambes.class, j.getId_jambe());
 
 		if (jambes != null)
 		{

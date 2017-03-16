@@ -8,28 +8,29 @@ import javax.persistence.*;
 @Table(name = "nez")
 public class Nez implements Serializable
 {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_nez;
-	@Column(name = "forme")
 	private String forme;
-	@Column(name = "largeur")
 	private int largeur;
-	@Column(name = "hauteur")
 	private int hauteur;
-	@Column(name = "profondeur")
 	private int profondeur;
 	
-	public int getIdNez()
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public int getId_nez()
 	{
 		return id_nez;
 	}
 	
-	public void setIdNez(int id)
+	public void setId_nez(int id)
 	{
 		id_nez = id;
 	}
 	
+	@Column(name = "forme")
 	public String getForme()
 	{
 		return forme;
@@ -40,6 +41,7 @@ public class Nez implements Serializable
 		forme = f;
 	}
 	
+	@Column(name = "largeur")
 	public int getLargeur()
 	{
 		return largeur;
@@ -50,6 +52,7 @@ public class Nez implements Serializable
 		largeur = l;
 	}
 	
+	@Column(name = "hauteur")
 	public int getHauteur()
 	{
 		return hauteur;
@@ -60,6 +63,7 @@ public class Nez implements Serializable
 		hauteur = h;
 	}
 	
+	@Column(name = "profondeur")
 	public int getProfondeur()
 	{
 		return profondeur;

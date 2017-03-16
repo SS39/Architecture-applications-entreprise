@@ -24,7 +24,7 @@ public class YeuxServiceImpl implements YeuxService
 	@Override
 	public void modifierYeux(Yeux y) 
 	{
-		Yeux yeux = (Yeux)em.find(Yeux.class, y.getIdYeux());
+		Yeux yeux = (Yeux)em.find(Yeux.class, y.getId_yeux());
 
 		if (yeux != null)
 		{

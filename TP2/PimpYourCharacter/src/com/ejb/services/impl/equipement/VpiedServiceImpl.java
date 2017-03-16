@@ -10,8 +10,8 @@ import com.ejb.services.equipement.VpiedService;
 import com.jpa.entities.equipement.Vpied;
 
 @Stateless
-public class VpiedServiceImpl implements VpiedService{
-
+public class VpiedServiceImpl implements VpiedService
+{
 	@PersistenceContext(unitName="PimpYourCharacter")
 	private EntityManager em;
 	
@@ -24,7 +24,7 @@ public class VpiedServiceImpl implements VpiedService{
 	@Override
 	public void modifierVpied(Vpied vp) 
 	{
-		Vpied vpied = (Vpied)em.find(Vpied.class, vp.getIdVpied());
+		Vpied vpied = (Vpied)em.find(Vpied.class, vp.getId_vpied());
 
 		if (vpied != null)
 		{

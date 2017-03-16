@@ -8,24 +8,27 @@ import javax.persistence.*;
 @Table(name = "jambe")
 public class Jambes implements Serializable
 {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_jambe;
-	@Column(name = "hauteur")
 	private int hauteur;
-	@Column(name = "forme")
 	private String forme;
 	
-	public int getIdJambes()
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public int getId_jambe()
 	{
 		return id_jambe;
 	}
 	
-	public void setIdJambes(int id)
+	public void setId_jambe(int id)
 	{
 		id_jambe = id;
 	}
 	
+	@Column(name = "hauteur")
 	public int getHauteur()
 	{
 		return hauteur;
@@ -36,6 +39,7 @@ public class Jambes implements Serializable
 		hauteur = h;
 	}
 	
+	@Column(name = "forme")
 	public String getForme()
 	{
 		return forme;

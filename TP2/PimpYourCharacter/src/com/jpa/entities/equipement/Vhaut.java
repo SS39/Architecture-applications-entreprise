@@ -1,38 +1,45 @@
 package com.jpa.entities.equipement;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+import com.jpa.entities.Couleur;
+import com.jpa.entities.Texture;
 
 @Entity
 @Table(name = "vhaut")
-public class Vhaut {
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+public class Vhaut implements Serializable
+{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_vhaut;
-	@Column(name = "label")
 	private String label;
-	@Column(name = "poids")
 	private int poids;
-	@Column(name = "id_couleur")
-	private int idCouleur;
-	@Column(name = "id_texture")
-	private int idTexture;
+	private Couleur couleur;
+	private Texture texture;
 	
-	public int getIdVhaut()
+	public Vhaut() 
+	{
+		this.couleur = new Couleur();
+		this.texture = new Texture();
+	}
+	
+	@Id 
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	public int getId_vhaut()
 	{
 		return id_vhaut;
 	}
 
-	public void setIdVhaut(int id)
+	public void setId_vhaut(int id)
 	{
 		id_vhaut = id;
 	}
 	
+	@Column(name = "label")
 	public String getLabel()
 	{
 		return label;
@@ -43,6 +50,7 @@ public class Vhaut {
 		label = l;
 	}
 	
+	@Column(name = "poids")
 	public int getPoids()
 	{
 		return poids;
@@ -53,27 +61,27 @@ public class Vhaut {
 		poids = p;
 	}
 	
-	@OneToOne
-    @JoinColumn(name = "id_couleur")
-	public int getCouleur()
+	@ManyToOne
+	@JoinColumn(name = "id_couleur")
+	public Couleur getCouleur()
 	{
-		return idCouleur;
+		return couleur;
 	}
 	
-	public void setCouleur(int c)
+	public void setCouleur(Couleur c)
 	{
-		idCouleur = c;
+		couleur = c;
 	}
 	
-	@OneToOne
-    @JoinColumn(name = "id_texture")
-	public int getTexture()
+	@ManyToOne
+	@JoinColumn(name = "id_texture")
+	public Texture getTexture()
 	{
-		return idTexture;
+		return texture;
 	}
 	
-	public void setTexture(int t)
+	public void setTexture(Texture t)
 	{
-		idTexture = t;
+		texture = t;
 	}
 }

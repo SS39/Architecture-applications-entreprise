@@ -4,36 +4,42 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
+import com.jpa.entities.Couleur;
+
 @Entity
 @Table(name = "yeux")
 public class Yeux implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int id_yeux;
+	private String forme;
+	private int hauteur;
+	private int largeur;
+	private int profondeur;
+	private int ecartement;
+	private Couleur couleur;
+	
+	public Yeux()
+	{
+		couleur = new Couleur();
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_yeux;
-	@Column(name = "forme")
-	private String forme;
-	@Column(name = "hauteur")
-	private int hauteur;
-	@Column(name = "largeur")
-	private int largeur;
-	@Column(name = "profondeur")
-	private int profondeur;
-	@Column(name = "ecartement")
-	private int ecartement;
-	@Column(name = "id_couleur")
-	private int idCouleur;
-	
-	public int getIdYeux()
+	public int getId_yeux()
 	{
 		return id_yeux;
 	}
 	
-	public void setIdYeux(int id)
+	public void setId_yeux(int id)
 	{
 		id_yeux = id;
 	}
 	
+	@Column(name = "forme")
 	public String getForme()
 	{
 		return forme;
@@ -44,6 +50,7 @@ public class Yeux implements Serializable
 		forme = f;
 	}
 	
+	@Column(name = "largeur")
 	public int getLargeur()
 	{
 		return largeur;
@@ -54,6 +61,7 @@ public class Yeux implements Serializable
 		largeur = l;
 	}
 	
+	@Column(name = "hauteur")
 	public int getHauteur()
 	{
 		return hauteur;
@@ -64,6 +72,7 @@ public class Yeux implements Serializable
 		hauteur = h;
 	}
 	
+	@Column(name = "profondeur")
 	public int getProfondeur()
 	{
 		return profondeur;
@@ -74,6 +83,7 @@ public class Yeux implements Serializable
 		profondeur = p;
 	}
 	
+	@Column(name = "ecartement")
 	public int getEcartement()
 	{
 		return ecartement;
@@ -83,16 +93,15 @@ public class Yeux implements Serializable
 	{
 		ecartement = e;
 	}
-	
-	@OneToOne
-    @JoinColumn(name = "id_couleur")
-	public int getCouleur()
-	{
-		return idCouleur;
+
+	@ManyToOne
+	@JoinColumn(name = "id_couleur")
+	public Couleur getCouleur() {
+		return couleur;
+	}
+
+	public void setCouleur(Couleur couleur) {
+		this.couleur = couleur;
 	}
 	
-	public void setCouleur(int c)
-	{
-		idCouleur = c;
-	}
 }

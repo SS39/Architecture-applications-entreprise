@@ -9,8 +9,8 @@ import com.ejb.services.equipement.VpiedService;
 import com.jpa.entities.equipement.Vpied;
 
 @ManagedBean
-public class VpiedController {
-	
+public class VpiedController 
+{	
 	private Vpied vpied = new Vpied();
 	
 	@EJB

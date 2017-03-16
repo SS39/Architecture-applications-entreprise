@@ -1,21 +1,38 @@
-<form xmlns:f="http://java.sun.com/jsf/core"
+<h:form xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html">
-	<h1>
-		<h:outputText value="Pimp Your Character" />
-	</h1>
-	<h2>
-		<h:outputText value="Modifier une Couleur" />
-	</h2>
-	<br />
-	<h:panelGrid columns="2" cellpadding="5">
-		<p:outputLabel value="ID" />
-		<p:inputText value="#{couleurController.couleur.idCouleur}"></p:inputText>
-		<p:outputLabel value="Label" />
-		<p:inputText value="#{couleurController.couleur.label}"></p:inputText>
-		<p:commandButton value="Modifier"
-			action="#{couleurController.modifierCouleur(couleurController.couleur)}"></p:commandButton>
-	</h:panelGrid>
-</form>
+	
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" />
+	<!-- load bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.css" />
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
+	<!-- load angular and jquery-->
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js" />
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js" />
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js" />
+	<f:metadata>
+		<f:viewParam name="id" value="#{couleurController.couleur.id_couleur}"></f:viewParam>
+		<f:viewParam name="label" value="#{couleurController.couleur.label}"></f:viewParam>
+	</f:metadata>
+	<h:form>
+		<h1>
+	        <h:outputText value="Pimp Your Character" />
+	    </h1>
+	    <h2>
+	        <h:outputText value="Modifier une Couleur" />
+	    </h2>
+	    <br/>
+	    <h:panelGrid columns="2" cellpadding="5">
+	    	<p:outputLabel value="ID" />
+			<p:inputText value="#{couleurController.couleur.id_couleur}"></p:inputText>
+			<p:outputLabel value="Label" />
+			<p:inputText value="#{couleurController.couleur.label}"></p:inputText>
+			<h:commandButton value="Modifier"
+				action="#{couleurController.modifierCouleur(couleurController.couleur)}"></h:commandButton>
+				<a href = "./home_couleur.xhtml">retour a la liste</a>
+		</h:panelGrid>
+	</h:form>
+</h:form>

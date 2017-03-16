@@ -9,8 +9,8 @@ import com.ejb.services.equipement.VbasService;
 import com.jpa.entities.equipement.Vbas;
 
 @ManagedBean
-public class VbasController {
-	
+public class VbasController 
+{	
 	private Vbas vbas = new Vbas();
 	
 	@EJB
@@ -39,8 +39,8 @@ public class VbasController {
 		vbasservice.supprimerVbas(idVbas);
 	}
 	
-	public List<Vbas> getVbass()
+	public List<Vbas> getListVbas()
 	{
-		return vbasservice.getVbass();
+		return vbasservice.getListVbas();
 	}
 }

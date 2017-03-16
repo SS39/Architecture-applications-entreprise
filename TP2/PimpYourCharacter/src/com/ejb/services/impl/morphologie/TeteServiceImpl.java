@@ -24,7 +24,7 @@ public class TeteServiceImpl implements TeteService
 	@Override
 	public void modifierTete(Tete t) 
 	{
-		Tete tete = (Tete)em.find(Tete.class, t.getIdTete());
+		Tete tete = (Tete)em.find(Tete.class, t.getId_tete());
 
 		if (tete != null)
 		{

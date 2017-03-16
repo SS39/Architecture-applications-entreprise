@@ -10,7 +10,8 @@ import com.ejb.services.equipement.VmainService;
 import com.jpa.entities.equipement.Vmain;
 
 @Stateless
-public class VmainServiceImpl implements VmainService{
+public class VmainServiceImpl implements VmainService
+{
 
 	@PersistenceContext(unitName="PimpYourCharacter")
 	private EntityManager em;
@@ -24,7 +25,7 @@ public class VmainServiceImpl implements VmainService{
 	@Override
 	public void modifierVmain(Vmain vm) 
 	{
-		Vmain vmain = (Vmain)em.find(Vmain.class, vm.getIdVmain());
+		Vmain vmain = (Vmain)em.find(Vmain.class, vm.getId_vmain());
 
 		if (vmain != null)
 		{

@@ -25,7 +25,7 @@ public class BoucheController
 	{
 		this.bouche = b;
 	}
-	
+
 	public void ajouterBouche(Bouche b)
 	{
 		service.ajouterBouche(b);

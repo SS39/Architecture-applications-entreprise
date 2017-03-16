@@ -10,8 +10,8 @@ import com.ejb.services.equipement.VteteService;
 import com.jpa.entities.equipement.Vtete;
 
 @Stateless
-public class VteteServiceImpl implements VteteService{
-
+public class VteteServiceImpl implements VteteService
+{
 	@PersistenceContext(unitName="PimpYourCharacter")
 	private EntityManager em;
 	
@@ -24,7 +24,7 @@ public class VteteServiceImpl implements VteteService{
 	@Override
 	public void modifierVtete(Vtete vt) 
 	{
-		Vtete vtete = (Vtete)em.find(Vtete.class, vt.getIdVtete());
+		Vtete vtete = (Vtete)em.find(Vtete.class, vt.getId_vtete());
 
 		if (vtete != null)
 		{

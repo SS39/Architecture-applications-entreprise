@@ -2,13 +2,12 @@ package com.ejb.services.equipement;
 
 import java.util.List;
 
-import com.jpa.entities.equipement.*;
+import com.jpa.entities.equipement.Vpied;
 
-public interface VpiedService {
-
+public interface VpiedService 
+{
 	public void ajouterVpied(Vpied vp);
 	public void modifierVpied(Vpied vp);
 	public void supprimerVpied(int id);
 	public List<Vpied> getVpieds();
-	
 }

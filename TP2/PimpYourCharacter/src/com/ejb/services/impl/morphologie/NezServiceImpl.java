@@ -24,7 +24,7 @@ public class NezServiceImpl implements NezService
 	@Override
 	public void modifierNez(Nez n) 
 	{
-		Nez nez = (Nez)em.find(Nez.class, n.getIdNez());
+		Nez nez = (Nez)em.find(Nez.class, n.getId_nez());
 
 		if (nez != null)
 		{

@@ -45,7 +45,7 @@ pimpApp.config(function($routeProvider){
 			templateUrl : './couleur/home_couleur.xhtml',
 		})
 		.when('/couleuradd', {
-			templateUrl : './couleur/ajouter_couleur.xhtml',
+			templateUrl : '/couleur/ajouter_couleur.xhtml',
 		})
 		.when('/couleurup', {
 			templateUrl : './couleur/modifier_couleur.xhtml',

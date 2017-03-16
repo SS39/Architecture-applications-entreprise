@@ -9,8 +9,8 @@ import com.ejb.services.equipement.VmainService;
 import com.jpa.entities.equipement.Vmain;
 
 @ManagedBean
-public class VmainController {
-	
+public class VmainController 
+{	
 	private Vmain vmain = new Vmain();
 	
 	@EJB

@@ -8,35 +8,38 @@ import javax.persistence.*;
 @Table(name = "tete")
 public class Tete implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int id_tete;
+	private String forme;
+	private int largeur;
+	private int hauteur;
+	private Nez nez;
+	private Bouche bouche;
+	private Yeux yeux;
+	
+	public Tete() 
+	{
+		this.nez = new Nez();
+		this.bouche = new Bouche();
+		this.yeux = new Yeux();
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_tete;
-	@Column(name = "forme")
-	private String forme;
-	@Column(name = "largeur")
-	private int largeur;
-	@Column(name = "hauteur")
-	private int hauteur;
-	/*private Nez nez;
-	private Bouche bouche;
-	private Yeux yeux;*/
-	@Column(name = "id_nez")
-	private int idNez;
-	@Column(name = "id_bouche")
-	private int idBouche;
-	@Column(name = "id_yeux")
-	private int idYeux;
-	
-	public int getIdTete()
+	public int getId_tete()
 	{
 		return id_tete;
 	}
 	
-	public void setIdTete(int id)
+	public void setId_tete(int id)
 	{
 		id_tete = id;
 	}
 	
+	@Column(name = "forme")
 	public String getForme()
 	{
 		return forme;
@@ -47,6 +50,7 @@ public class Tete implements Serializable
 		forme = f;
 	}
 	
+	@Column(name = "largeur")
 	public int getLargeur()
 	{
 		return largeur;
@@ -57,6 +61,7 @@ public class Tete implements Serializable
 		largeur = l;
 	}
 	
+	@Column(name = "hauteur")
 	public int getHauteur()
 	{
 		return hauteur;
@@ -66,71 +71,34 @@ public class Tete implements Serializable
 	{
 		hauteur = h;
 	}
-	
-	/*public Nez getNez()
-	{
+
+	@ManyToOne
+	@JoinColumn(name = "id_nez")
+	public Nez getNez() {
 		return nez;
 	}
-	
-	public void setNez(Nez n)
-	{
-		nez = n;
+
+	public void setNez(Nez nez) {
+		this.nez = nez;
 	}
-	
-	public Bouche getBouche()
-	{
+
+	@ManyToOne
+	@JoinColumn(name = "id_bouche")
+	public Bouche getBouche() {
 		return bouche;
 	}
-	
-	public void setBouche(Bouche b)
-	{
-		bouche = b;
+
+	public void setBouche(Bouche bouche) {
+		this.bouche = bouche;
 	}
-	
-	public Yeux getYeux()
-	{
+
+	@ManyToOne
+	@JoinColumn(name = "id_yeux")
+	public Yeux getYeux() {
 		return yeux;
 	}
-	
-	public void setYeux(Yeux y)
-	{
-		yeux = y;
-	}*/
-	
-	@ManyToOne
-    @JoinColumn(name = "id_nez")
-	public int getNez()
-	{
-		return idNez;
+
+	public void setYeux(Yeux yeux) {
+		this.yeux = yeux;
 	}
-	
-	public void setNez(int n)
-	{
-		idNez = n;
-	}
-	
-	@ManyToOne
-    @JoinColumn(name = "id_bouche")
-	public int getBouche()
-	{
-		return idBouche;
-	}
-	
-	public void setBouche(int b)
-	{
-		idBouche = b;
-	}
-	
-	@ManyToOne
-    @JoinColumn(name = "id_yeux")
-	public int getYeux()
-	{
-		return idYeux;
-	}
-	
-	public void setYeux(int y)
-	{
-		idYeux = y;
-	}
-	
 }

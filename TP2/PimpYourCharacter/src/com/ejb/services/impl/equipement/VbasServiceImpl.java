@@ -10,8 +10,8 @@ import com.ejb.services.equipement.VbasService;
 import com.jpa.entities.equipement.Vbas;
 
 @Stateless
-public class VbasServiceImpl implements VbasService{
-
+public class VbasServiceImpl implements VbasService
+{
 	@PersistenceContext(unitName="PimpYourCharacter")
 	private EntityManager em;
 	
@@ -24,7 +24,7 @@ public class VbasServiceImpl implements VbasService{
 	@Override
 	public void modifierVbas(Vbas vb) 
 	{
-		Vbas vbas = (Vbas)em.find(Vbas.class, vb.getIdVbas());
+		Vbas vbas = (Vbas)em.find(Vbas.class, vb.getId_vbas());
 
 		if (vbas != null)
 		{
@@ -49,7 +49,7 @@ public class VbasServiceImpl implements VbasService{
 	}
 
 	@Override
-	public List<Vbas> getVbass() 
+	public List<Vbas> getListVbas() 
 	{
 		return (List<Vbas>)em.createQuery("from Vbas").getResultList();
 	}

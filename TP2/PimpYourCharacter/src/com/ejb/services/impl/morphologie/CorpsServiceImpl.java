@@ -25,7 +25,7 @@ public class CorpsServiceImpl implements CorpsService
 	@Override
 	public void modifierCorps(Corps c) 
 	{
-		Corps corps = (Corps)em.find(Corps.class, c.getIdCorps());
+		Corps corps = (Corps)em.find(Corps.class, c.getId_corps());
 
 		if (corps != null)
 		{

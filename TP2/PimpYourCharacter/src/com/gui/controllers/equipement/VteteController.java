@@ -10,8 +10,8 @@ import com.jpa.entities.equipement.Vtete;
 
 
 @ManagedBean
-public class VteteController {
-	
+public class VteteController 
+{	
 	private Vtete vtete = new Vtete();
 	
 	@EJB

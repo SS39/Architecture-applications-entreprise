@@ -1,38 +1,50 @@
 package com.jpa.entities.equipement;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.*;
+
+import com.jpa.entities.Couleur;
+import com.jpa.entities.Texture;
+import com.jpa.entities.personnage.Personnage;
 
 @Entity
 @Table(name = "vpied")
-public class Vpied {
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+public class Vpied implements Serializable
+{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_vpied;
-	@Column(name = "label")
 	private String label;
-	@Column(name = "poids")
 	private int poids;
-	@Column(name = "id_couleur")
-	private int idCouleur;
-	@Column(name = "id_texture")
-	private int idTexture;
+	private Couleur couleur;
+	private Texture texture;
+	private Set<Personnage> personnages;	
 	
-	public int getIdVpied()
+	public Vpied() 
+	{
+		this.couleur = new Couleur();
+		this.texture = new Texture();
+		this.personnages = new HashSet<Personnage>(0);
+	}
+	
+	@Id 
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	public int getId_vpied()
 	{
 		return id_vpied;
 	}
 	
-	public void setIdVpied(int id)
+	public void setId_vpied(int id)
 	{
 		id_vpied = id;
 	}
 	
+	@Column(name = "label")
 	public String getLabel()
 	{
 		return label;
@@ -43,6 +55,7 @@ public class Vpied {
 		label = l;
 	}
 	
+	@Column(name = "poids")
 	public int getPoids()
 	{
 		return poids;
@@ -53,27 +66,38 @@ public class Vpied {
 		poids = p;
 	}
 	
-	@OneToOne
-    @JoinColumn(name = "id_couleur")
-	public int getCouleur()
+	@ManyToOne
+	@JoinColumn(name = "id_couleur")
+	public Couleur getCouleur()
 	{
-		return idCouleur;
+		return couleur;
 	}
 	
-	public void setCouleur(int c)
+	public void setCouleur(Couleur c)
 	{
-		idCouleur = c;
+		couleur = c;
 	}
 	
-	@OneToOne
-    @JoinColumn(name = "id_texture")
-	public int getTexture()
+	@ManyToOne
+	@JoinColumn(name = "id_texture")
+	public Texture getTexture()
 	{
-		return idTexture;
+		return texture;
 	}
 	
-	public void setTexture(int t)
+	public void setTexture(Texture t)
 	{
-		idTexture = t;
+		texture = t;
+	}
+	
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "vpieds")
+	public Set<Personnage> getPersonnages() 
+	{
+		return personnages;
+	}
+
+	public void setPersonnages(Set<Personnage> personnages) 
+	{
+		this.personnages = personnages;
 	}
 }

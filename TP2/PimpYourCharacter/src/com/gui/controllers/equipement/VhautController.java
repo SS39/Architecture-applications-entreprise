@@ -8,10 +8,9 @@ import javax.faces.bean.ManagedBean;
 import com.ejb.services.equipement.VhautService;
 import com.jpa.entities.equipement.Vhaut;
 
-
 @ManagedBean
-public class VhautController {
-	
+public class VhautController 
+{	
 	private Vhaut vhaut = new Vhaut();
 	
 	@EJB

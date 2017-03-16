@@ -24,7 +24,7 @@ public class BrasServiceImpl implements BrasService
 	@Override
 	public void modifierBras(Bras b) 
 	{
-		Bras bras = (Bras)em.find(Bras.class, b.getIdBras());
+		Bras bras = (Bras)em.find(Bras.class, b.getId_bras());
 
 		if (bras != null)
 		{

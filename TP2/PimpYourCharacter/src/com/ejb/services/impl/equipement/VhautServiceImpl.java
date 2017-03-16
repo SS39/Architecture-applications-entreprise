@@ -10,8 +10,8 @@ import com.ejb.services.equipement.VhautService;
 import com.jpa.entities.equipement.Vhaut;
 
 @Stateless
-public class VhautServiceImpl implements VhautService{
-
+public class VhautServiceImpl implements VhautService
+{
 	@PersistenceContext(unitName="PimpYourCharacter")
 	private EntityManager em;
 	
@@ -24,7 +24,7 @@ public class VhautServiceImpl implements VhautService{
 	@Override
 	public void modifierVhaut(Vhaut vh) 
 	{
-		Vhaut vhaut = (Vhaut)em.find(Vhaut.class, vh.getIdVhaut());
+		Vhaut vhaut = (Vhaut)em.find(Vhaut.class, vh.getId_vhaut());
 
 		if (vhaut != null)
 		{
