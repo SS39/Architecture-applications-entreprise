@@ -7,15 +7,15 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html" 
 	ng-app = "pimp">
-	<head>
+	<h:head>
 		<meta charset="utf-8"/>
     	<title>Home</title>
     	
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"/>
     	<!-- load bootstrap -->
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css"/>
+    	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css"/>
     	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.css" />
-    	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"/>
+    	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"/>-->
     	<!-- load angular and jquery-->
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"/>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js"/>
@@ -23,51 +23,65 @@
 
     	<script src="app.js"/>
     	
-	</head>
-	<body>
+	</h:head>
+	<h:body>
 		<header>
-			<nav class = "navbar navbar-inverse">
-				<div class = "container-fluid">
-					<div class = "navbar-header">
-						<a href = "#/">Modélisation de personnages</a>
-					</div>
-					<form class="navbar-form navbar-left">
-            			<div class="form-group">
-              				<input type="text" class="form-control" placeholder="Quick Search" ng-model="search"/>
-            			</div>
-					</form>
-					<ul class = "nav navbar-nav navbar-right">
-						<li><a href = "#/accessoire">Accessoire</a></li>
-						<li><a href = "#/arme">Arme</a></li>
-						<li><a href = "#/bouche">Bouche</a></li>
-						<li><a href = "#/bouclier">Bouclier</a></li>
-						<li><a href = "#/bras">Bras</a></li>
-						<li><a href = "#/buste">Buste</a></li>
-						<li><a href = "#/cat1">Categorie accessoire</a></li>
-						<li><a href = "#/cat2">Categorie arme</a></li>
-						<li><a href = "#/corps">Corps</a></li>
-						<li><a href = "#/couleur">Couleur</a></li>
-						<li><a href = "#/ethnie">Ethnie</a></li>
-						<li><a href = "#/genre">Genre</a></li>
-						<li><a href = "#/jambe">Jambes</a></li>
-						<li><a href = "#/nez">Nez</a></li>
-						<li><a href = "#/position">Position</a></li>
-						<li><a href = "#/tatouage">Tatouage</a></li>
-						<li><a href = "#/tete">Tete</a></li>
-						<li><a href = "#/texture">Texture</a></li>
-						<li><a href = "#/vet1">Vetement bas</a></li>
-						<li><a href = "#/vet2">Vetement haut</a></li>
-						<li><a href = "#/vet3">Vetement main</a></li>
-						<li><a href = "#/vet4">Vetement pied</a></li>
-						<li><a href = "#/vet5">Vetement tete</a></li>
-						<li><a href = "#/yeux">Yeux tete</a></li>
-					</ul>
-				</div>
-			</nav>
-		</header>
+    		<p:growl id="messages"/>
+		  	<p:menubar>
+        		<p:submenu label="Général">
+          			<p:menuitem value="Couleur" url="#/couleur" />
+         		    <p:separator />
+            		<p:menuitem value="Ethnie" url="#/ethnie" />
+           			<p:separator />
+           			<p:menuitem value="Genre" url="#/genre" />
+           			<p:separator />
+           			<p:menuitem value="Texture" url="#/texture" />
+           			<p:separator />
+           			<p:menuitem value="Personnage" url="#/personnage" />
+       			</p:submenu>
+ 				<p:submenu label="Morphologie">
+            		<p:menuitem value="Bouche" url="#/bouche" />
+           			<p:separator />
+       				<p:menuitem value="Bras" url="#/bras" />
+           			<p:separator />
+           			<p:menuitem value="Buste" url="#/buste" />
+           			<p:separator />
+            		<p:menuitem value="Corps" url="#/corps" />
+            		<p:separator />
+            		<p:menuitem value="Jambes" url="#/jambe" />
+            		<p:separator />
+           			<p:menuitem value="Nez" url="#/nez" />
+           			<p:separator />
+           			<p:menuitem value="Tête" url="#/tete" />
+           			<p:separator />
+           			<p:menuitem value="Yeux" url="#/yeux" />
+       			</p:submenu>
+       			<p:submenu label="Equipement">
+            		<p:menuitem value="Accessoire" url="#/accessoire" />
+            		<p:separator />
+            		<p:menuitem value="Arme" url="#/arme" />
+           			<p:separator />
+           			<p:menuitem value="Bouclier" url="#/bouclier" />
+           			<p:separator />
+           			<p:menuitem value="Catégorie accessoire" url="#/cat1" />
+           			<p:separator />
+           			<p:menuitem value="Catégorie arme" url="#/cat2" />
+           			<p:separator />
+           			<p:menuitem value="Vêtement bas" url="#/vet1" />
+            		<p:separator />
+            		<p:menuitem value="Vêtement haut" url="#/vet2" />
+            		<p:separator />
+           			<p:menuitem value="Vêtement main" url="#/vet3" />
+           			<p:separator />
+           			<p:menuitem value="Vêtement pied" url="#/vet4" />
+           			<p:separator />
+           			<p:menuitem value="Vêtement tête" url="#/vet5" />
+       			</p:submenu>
+    		</p:menubar>
+   		</header>
 		<div class = "container-fluid">
 			<ng-view>
 			</ng-view>
 		</div>
-	</body>
+	</h:body>
 </html>

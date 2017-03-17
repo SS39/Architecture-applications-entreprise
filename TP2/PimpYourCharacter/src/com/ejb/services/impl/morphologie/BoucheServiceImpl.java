@@ -65,7 +65,59 @@ public class BoucheServiceImpl implements BoucheService
 		return (List<Bouche>)em.createQuery("from Bouche").getResultList();
 	}
 
+	@Override
+	public List<Bouche> getBouches(String id, String forme, String largeur, String hauteur, String profondeur, String couleur) {
+		String query = null;
+		
+		if (id.compareToIgnoreCase("0") != 0) {
+			query = "from Bouche where id_bouche="+id;
+		}
+		if (forme == null) {
+			if (query == null) {
+				query = "from Bouche where forme="+"'"+forme+"'";
+			} else {
+				query+=" and forme="+"'"+forme+"'";
+			}
+		}
+		if (largeur.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Bouche where largeur="+largeur;
+			} else {
+				query+=" and largeur="+largeur;
+			}
+		}
+		if (hauteur.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Bouche where hauteur="+hauteur;
+			} else {
+				query+=" and hauteur="+hauteur;
+			}
+		}
+		if (profondeur.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Bouche where profondeur="+profondeur;
+			} else {
+				query+=" and profondeur="+profondeur;
+			}
+		}
+		if (couleur.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Bouche where id_couleur="+couleur;
+			} else {
+				query+=" and id_couleur="+couleur;
+			}
+		}
+		
+		if (query == null) {
+			return null;
+		} else {
+			return (List<Bouche>)em.createQuery(query).getResultList();
+		}
+	}
+
+	@Override
 	public List<Bouche> getSearchBouches(String research) {
-		return (List<Bouche>)em.createQuery(research).getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -64,9 +64,69 @@ public class YeuxServiceImpl implements YeuxService
 	{
 		return (List<Yeux>)em.createQuery("from Yeux").getResultList();
 	}
-	
+
+	@Override
+	public List<Yeux> getYeux(String id, String forme, String hauteur, String largeur, String profondeur,
+			String ecartement, String couleur) {
+		String query = null;
+
+		if (id.compareToIgnoreCase("0") != 0) {
+			query = "from Yeux where id_yeux="+id;
+		}
+		if (forme==null) {
+			if (query == null) {
+				query = "from Yeux where forme="+"'"+forme+"'";
+			} else {
+				query+=" and forme="+"'"+forme+"'";
+			}
+		}
+		if (largeur.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Yeux where largeur="+largeur;
+			} else {
+				query+=" and largeur="+largeur;
+			}
+		}
+		if (hauteur.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Yeux where hauteur="+hauteur;
+			} else {
+				query+=" and hauteur="+hauteur;
+			}
+		}
+		if (profondeur.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Yeux where id_profondeur="+profondeur;
+			} else {
+				query+=" and id_profondeur="+profondeur;
+			}
+		}
+		if (ecartement.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Yeux where ecartement="+ecartement;
+			} else {
+				query+=" and ecartement="+ecartement;
+			}
+		}
+		if (couleur.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Yeux where id_couleur="+couleur;
+			} else {
+				query+=" and id_couleur="+couleur;
+			}
+		}
+
+		if (query == null) {
+			return null;
+		} else {
+			return (List<Yeux>)em.createQuery(query).getResultList();
+		}
+	}
+
+	@Override
 	public List<Yeux> getSearchYeux(String research) {
-		return (List<Yeux>)em.createQuery(research).getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

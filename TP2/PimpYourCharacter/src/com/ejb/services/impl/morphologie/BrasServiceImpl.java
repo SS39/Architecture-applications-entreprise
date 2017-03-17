@@ -47,13 +47,44 @@ public class BrasServiceImpl implements BrasService
 	}
 
 	@Override
-	public List<Bras> getListBras() 
-	{
-		return (List<Bras>)em.createQuery("from Bras").getResultList();
+	public List<Bras> getBras(String id, String longueur, String forme) {
+		String query = null;
+		
+		if (id.compareToIgnoreCase("0") != 0) {
+			query = "from Bras where id_bras="+id;
+		}
+		if (forme == null) {
+			if (query == null) {
+				query = "from Bras where forme="+"'"+forme+"'";
+			} else {
+				query+=" and forme="+"'"+forme+"'";
+			}
+		}
+		if (longueur.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Bras where longueur="+longueur;
+			} else {
+				query+=" and longueur="+longueur;
+			}
+		}
+		
+		if (query == null) {
+			return null;
+		} else {
+			return (List<Bras>)em.createQuery(query).getResultList();
+		}
 	}
-	
+
+	@Override
+	public List<Bras> getListBras() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public List<Bras> getSearchBras(String research) {
-		return (List<Bras>)em.createQuery(research).getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

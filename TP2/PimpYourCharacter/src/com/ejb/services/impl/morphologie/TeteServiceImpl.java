@@ -89,4 +89,64 @@ public class TeteServiceImpl implements TeteService
 		return (List<Tete>)em.createQuery(research).getResultList();
 	}
 
+	@Override
+	public List<Tete> getTetes(String id, String forme, String largeur, String hauteur, String nez, String bouche,
+			String yeux) {
+		String query = null;
+
+		if (id.compareToIgnoreCase("0") != 0) {
+			query = "from Tete where id_tete="+id;
+		}
+		if (forme==null) {
+			if (query == null) {
+				query = "from Tete where forme="+"'"+forme+"'";
+			} else {
+				query+=" and forme="+"'"+forme+"'";
+			}
+		}
+		if (largeur.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Tete where largeur="+largeur;
+			} else {
+				query+=" and largeur="+largeur;
+			}
+		}
+		if (hauteur.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Tete where hauteur="+hauteur;
+			} else {
+				query+=" and hauteur="+hauteur;
+			}
+		}
+		if (nez.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Tete where id_nez="+nez;
+			} else {
+				query+=" and id_nez="+nez;
+			}
+		}
+		if (bouche.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Tete where id_bouche="+bouche;
+			} else {
+				query+=" and id_bouche="+bouche;
+			}
+		}
+		if (yeux.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Tete where id_yeux="+yeux;
+			} else {
+				query+=" and id_yeux="+yeux;
+			}
+		}
+
+		if (query == null) {
+			return null;
+		} else {
+			return (List<Tete>)em.createQuery(query).getResultList();
+		}
+	}
+
 }
+
+	

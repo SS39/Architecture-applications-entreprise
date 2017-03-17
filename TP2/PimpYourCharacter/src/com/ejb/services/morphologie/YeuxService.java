@@ -11,4 +11,5 @@ public interface YeuxService
 	public void supprimerYeux(int id);
 	public List<Yeux> getListYeux();
 	public List<Yeux> getSearchYeux(String research);
+	public List<Yeux> getYeux(String id, String forme, String hauteur, String largeur, String profondeur, String ecartement, String couleur);
 }

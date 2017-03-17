@@ -11,4 +11,5 @@ public interface TeteService
 	public void supprimerTete(int id);
 	public List<Tete> getTetes();
 	public List<Tete> getSearchTetes(String research);
+	public List<Tete> getTetes(String id, String forme, String largeur, String hauteur, String nez, String bouche, String yeux);
 }

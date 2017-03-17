@@ -2,17 +2,20 @@ package com.gui.controllers.search;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-
-import com.gui.controllers.CouleurController;
-import com.gui.controllers.morphologie.BoucheController;
-import com.gui.controllers.morphologie.BrasController;
-import com.gui.controllers.morphologie.BusteController;
-import com.gui.controllers.morphologie.CorpsController;
-import com.gui.controllers.morphologie.JambesController;
-import com.gui.controllers.morphologie.NezController;
-import com.gui.controllers.morphologie.TeteController;
-import com.gui.controllers.morphologie.YeuxController;
+import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
+import com.ejb.services.CouleurService;
+import com.ejb.services.morphologie.BoucheService;
+import com.ejb.services.morphologie.BrasService;
+import com.ejb.services.morphologie.BusteService;
+import com.ejb.services.morphologie.CorpsService;
+import com.ejb.services.morphologie.JambesService;
+import com.ejb.services.morphologie.NezService;
+import com.ejb.services.morphologie.TeteService;
+import com.ejb.services.morphologie.YeuxService;
 import com.jpa.entities.Couleur;
 import com.jpa.entities.morphologie.Bouche;
 import com.jpa.entities.morphologie.Bras;
@@ -24,188 +27,221 @@ import com.jpa.entities.morphologie.Tete;
 import com.jpa.entities.morphologie.Yeux;
 
 @ManagedBean
+@RequestScoped
 public class SearchController {
+	
+	@EJB
+	private BoucheService serviceBouche;
+	private Bouche paramBouche = new Bouche();
+	
+	@EJB
+	private BrasService serviceBras;
+	private Bras paramBras = new Bras();
+	
+	@EJB
+	private BusteService serviceBuste;
+	private Buste paramBuste = new Buste();
+	
+	@EJB
+	private CorpsService serviceCorps;
+	private Corps paramCorps = new Corps();
 
-	private BoucheController boucheController = new BoucheController();
-	private Bouche searchBouche = new Bouche(-1,null,-1,-1,-1,null);
-	private String simpleSearchBouche = null;
-	
-	private BrasController brasController = new BrasController();
-	private Bras searchBras = new Bras(-1,-1,null);
-	private String simplesSearchBras = null;
-	
-	private BusteController busteController = new BusteController();
-	private Buste searchBuste = new Buste(-1,-1,-1,-1);
-	private String simpleSearchBuste = null;
-	
-	private CorpsController corpsController = new CorpsController();
-	private Corps searchCorps = new Corps(-1,-1,null,null,null,null);
-	private String simpleSearchCorps = null;
+	@EJB
+	private CouleurService serviceCouleur;
+	private Couleur paramCouleur = new Couleur();
 
-	private CouleurController couleurController = new CouleurController();
-	private Couleur searchCouleur = new Couleur(-1,null);
-	private String simpleSearchCouleur = null;
+	@EJB
+	private JambesService serviceJambes;
+	private Jambes paramJambes = new Jambes();
 
-	private JambesController jambesController = new JambesController();
-	private Jambes searchJambes = new Jambes(-1, -1, null);
-	private String simpleSearchJambes = null;
+	@EJB
+	private NezService serviceNez;
+	private Nez paramNez = new Nez();
 
-	private NezController nezController = new NezController();
-	private Nez searchNez = new Nez(-1, null, -1, -1, -1);
-	private String simpleSearchNez = null;
+	@EJB
+	private TeteService serviceTete;
+	private Tete paramTete = new Tete();
 
-	private TeteController teteController = new TeteController();
-	private Tete searchTete = new Tete(-1, null, -1, -1, null, null, null);
-	private String simpleSearchTete = null;
+	@EJB
+	private YeuxService serviceYeux;
+	private Yeux paramYeux = new Yeux();
+	
+	public Bouche getParamBouche() {
+		return paramBouche;
+	}
+	public void setParamBouche(Bouche paramBouche) {
+		this.paramBouche = paramBouche;
+	}
+	public Bras getParamBras() {
+		return paramBras;
+	}
+	public void setParamBras(Bras paramBras) {
+		this.paramBras = paramBras;
+	}
+	public Buste getParamBuste() {
+		return paramBuste;
+	}
+	public void setParamBuste(Buste paramBuste) {
+		this.paramBuste = paramBuste;
+	}
+	public Corps getParamCorps() {
+		return paramCorps;
+	}
+	public void setParamCorps(Corps paramCorps) {
+		this.paramCorps = paramCorps;
+	}
+	public Couleur getParamCouleur() {
+		return paramCouleur;
+	}
+	public void setParamCouleur(Couleur paramCouleur) {
+		this.paramCouleur = paramCouleur;
+	}
+	public Jambes getParamJambes() {
+		return paramJambes;
+	}
+	public void setParamJambes(Jambes paramJambes) {
+		this.paramJambes = paramJambes;
+	}
+	public Nez getParamNez() {
+		return paramNez;
+	}
+	public void setParamNez(Nez paramNez) {
+		this.paramNez = paramNez;
+	}
+	public Tete getParamTete() {
+		return paramTete;
+	}
+	public void setParamTete(Tete paramTete) {
+		this.paramTete = paramTete;
+	}
+	public Yeux getParamYeux() {
+		return paramYeux;
+	}
+	public void setParamYeux(Yeux paramYeux) {
+		this.paramYeux = paramYeux;
+	}
+	
+	public List<Bouche> getBouche(String id, String forme, String largeur, String hauteur, String profondeur, String couleur) {
+		return serviceBouche.getBouches(id,forme,largeur,hauteur,profondeur,couleur);
+	}
+	
+	public List<Bras> getBras(String id, String longueur, String forme) {
+		return serviceBras.getBras(id,longueur,forme);
+	}
+	
+	public List<Buste> getBustes(Integer id,Integer largeur, Integer hauteur, Integer corpulence) {
+		return serviceBuste.getBustes(id.toString(),largeur.toString(),hauteur.toString(),corpulence.toString());
+	}
+	
+	public List<Corps> getCorps(Integer id, Integer taille, Integer bras, Integer jambes, Integer buste, Integer tete) {
+		return serviceCorps.getCorps(id.toString(),taille.toString(),bras.toString(),jambes.toString(),buste.toString(),tete.toString());
+	}
+	
+	public List<Couleur> getCouleurs(String id, String label) {
+		return serviceCouleur.getCouleurs(id,label);
+	}
+	
+	public List<Jambes> getJambes(String id, String hauteur, String forme) {
+		return serviceJambes.getJambes(id,hauteur,forme);
+	}
+	
+	public List<Nez> getNez(String id,String forme,String largeur, String hauteur, String profondeur) {
+		return serviceNez.getNez(id,forme,largeur,hauteur,profondeur);
+	}
+	
+	public List<Tete> getTete(String id, String forme, String largeur, String hauteur, String nez, String bouche, String yeux) {
+		return serviceTete.getTetes(id,forme,largeur,hauteur,nez,bouche,yeux);
+	}
+	
+	public List<Yeux> getYeux(String id, String forme, String hauteur, String largeur, String profondeur, String ecartement, String couleur) {
+		return serviceYeux.getYeux(id,forme,hauteur,largeur,profondeur,ecartement,couleur);
+	}
 
-	private YeuxController yeuxController = new YeuxController();
-	private Yeux searchYeux = new Yeux(-1, null, -1, -1, -1, -1, null);
-	private String simpleSearchYeux = null;
+    public String searchBouche() {
+        Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+        flash.put("bouche_id", paramBouche.getId_bouche());
+        flash.put("bouche_forme", paramBouche.getForme());
+        flash.put("bouche_largeur", paramBouche.getLargeur());
+        flash.put("bouche_hauteur", paramBouche.getHauteur());
+        flash.put("bouche_profondeur", paramBouche.getProfondeur());
+        flash.put("bouche_couleur", paramBouche.getCouleur().getId_couleur());
+        return "search_bouche?faces-redirect=true";
+    }
 	
-	
-	public void simpleSearchParse(String search) {
-			
-			//Initialisation des variables de recherche
-			this.simpleSearchBouche = "from Bouche where "+search;
-			this.simplesSearchBras = "from Bras where "+search;
-			this.simpleSearchBuste = "from Buste where "+search;
-			this.simpleSearchCorps = "from Corps where "+search;
-			this.simpleSearchCouleur = "from Couleur where "+search;
-			this.simpleSearchJambes = "from Jambes where "+search;
-			this.simpleSearchNez = "from Nez where "+search;
-			this.simpleSearchTete = "from Tete where "+search;
-			this.simpleSearchYeux = "from Yeux where "+search;
-	}
-	/*
-	public void advancedSearchParse(String[][] search) {
-		if (search.length == 9) {
-			
-			if (search[0] != null) {//Recherche pour bouche
-				searchBouche = "from Bouche where ";
-				if (search[0][0] != null) {//Forme
-					searchBouche+="";
-				}
-			} else {
-				searchBouche = null;
-			}
-			
-			if (search[1] != null) {//Recherche pour bras
-				searchBras = "from Bras where ";
-
-			} else {
-				searchBras = null;
-			}
-			
-			if (search[2] != null) {//Recherche pour buste
-				searchBuste = "from Buste where ";
-
-			} else {
-				searchBuste = null;
-			}
-			
-			if (search[3] != null) {//Recherche pour corps
-				searchCorps = "from Corps where ";
-
-			} else {
-				searchCorps = null;
-			}
-			if (search[4] != null) {//Recherche pour couleurs
-				searchCouleur = "from Couleur where ";
-				
-			} else {
-				searchCouleur = null;
-			}
-			
-			if (search[5] != null) {//Recherche pour jambes
-				searchJambes = "from Jambes where ";
-
-			} else {
-				searchJambes = null;
-			}
-			
-			if (search[6] != null) {//Recherche pour Nez
-				searchNez = "from Nez where ";
-				
-			} else {
-				searchNez = null;
-			}
-			
-			if (search[7] != null) {//Recherche pour tete
-				searchTete = "from Tete where ";
-				
-			} else {
-				searchTete = null;
-			}
-			
-			if (search[8] != null) {//Recherche pour yeux
-				searchYeux = "from Yeux where ";
-			} else {
-				searchYeux = null;
-			}
-		}
-	}
-	*/
-	public List<Bouche> getSearchBouche(String searchBouche) {
-		if (searchBouche == null) {
-			return null;
-		}
-		return boucheController.getSearchBouches(searchBouche);
-	}
-	
-	public List<Bras> getSearchBras(String searchBras) {
-		if (searchBras == null) {
-			return null;
-		}
-		return brasController.getSearchBras(searchBras);
-	}
-	
-	public List<Buste> getSearchBuste(String searchBuste) {
-		if (searchBuste == null) {
-			return null;
-		}
-		return busteController.getSearchBustes(searchBuste);
-	}
-	
-	public List<Corps> getSearchCorps(String searchCorps) {
-		if (searchCorps == null) {
-			return null;
-		}
-		return corpsController.getSearchCorps(searchCorps);
-	}
-	
-	public List<Couleur> getSearchCouleurs(String searchCouleur) {
-		if (searchCouleur == null) {
-			return null;
-		}
-		return couleurController.getSearchCouleur(searchCouleur);
-	}
-	
-	public List<Jambes> getSearchJambes(String searchJambes) {
-		if (searchJambes == null) {
-			return null;
-		}
-		return jambesController.getSearchJambes(searchJambes);
-	}
-	
-	public List<Nez> getSearchNez(String searchNez) {
-		if (searchNez == null) {
-			return null;
-		}
-		return nezController.getSearchNez(searchNez);
-	}
-	
-	public List<Tete> getSearchTetes(String searchTete) {
-		if (searchTete == null) {
-			return null;
-		}
-		return teteController.getSearchTetes(searchTete);
-	}
-	
-	public List<Yeux> getSearchYeux(String searchYeux) {
-		if (searchYeux == null) {
-			return null;
-		}
-		return yeuxController.getSearchYeux(searchYeux);
-	}
-	
+    public String searchBras() {
+    	Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+        flash.put("bras_id", paramBras.getId_bras());
+        flash.put("bras_longueur", paramBras.getLongueur());
+        flash.put("bras_forme", paramBras.getForme());
+        return "search_bras?faces-redirect=true";
+    }
+    
+    public String searchBuste() {
+    	Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+        flash.put("buste_id", paramBuste.getId_buste());
+        flash.put("buste_largeur", paramBuste.getLargeur());
+        flash.put("buste_hauteur", paramBuste.getHauteur());
+        flash.put("buste_corpulence", paramBuste.getCorpulence());
+        return "search_buste?faces-redirect=true";
+    }
+    
+    public String searchCorps() {
+    	Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+        flash.put("corps_id", paramCorps.getId_corps());
+        flash.put("corps_taille", paramCorps.getTaille());
+        flash.put("corps_bras", paramCorps.getBras().getId_bras());
+        flash.put("corps_jambes", paramCorps.getJambes().getId_jambe());
+        flash.put("corps_buste", paramCorps.getId_corps());
+        flash.put("corps_tete", paramCorps.getId_corps());
+        return "search_corps?faces-redirect=true";
+    }
+    
+    public String searchCouleur() {
+        Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+        flash.put("couleur_id", paramCouleur.getId_couleur());
+        flash.put("couleur_label", paramCouleur.getLabel());
+        return "search_couleur?faces-redirect=true";
+    }
+    
+    public String searchJambes() {
+        Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+        flash.put("jambe_id", paramJambes.getId_jambe());
+        flash.put("jambe_hauteur", paramJambes.getHauteur());
+        flash.put("jambe_forme", paramJambes.getForme());
+        return "search_jambe?faces-redirect=true";
+    }
+    
+    public String searchNez() {
+        Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+        flash.put("nez_id", paramNez.getId_nez());
+        flash.put("nez_forme", paramNez.getForme());
+        flash.put("nez_largeur", paramNez.getLargeur());
+        flash.put("nez_hauteur", paramNez.getHauteur());
+        flash.put("nez_profondeur", paramNez.getProfondeur());
+        return "search_nez?faces-redirect=true";
+    }
+    
+    public String searchTete() {
+        Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+        flash.put("tete_id", paramTete.getId_tete());
+        flash.put("tete_forme", paramTete.getForme());
+        flash.put("tete_largeur", paramTete.getLargeur());
+        flash.put("tete_hauteur", paramTete.getHauteur());
+        flash.put("tete_nez", paramTete.getNez().getId_nez());
+        flash.put("tete_bouche", paramTete.getBouche().getId_bouche());
+        flash.put("tete_yeux", paramTete.getYeux().getId_yeux());
+        return "search_tete?faces-redirect=true";
+    }
+    
+    public String searchYeux() {
+        Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+        flash.put("yeux_id", paramYeux.getId_yeux());
+        flash.put("yeux_forme", paramYeux.getForme());
+        flash.put("yeux_hauteur", paramYeux.getHauteur());
+        flash.put("yeux_largeur", paramYeux.getLargeur());
+        flash.put("yeux_profondeur", paramYeux.getProfondeur());
+        flash.put("yeux_ecartement", paramYeux.getEcartement());
+        flash.put("yeux_couleur", paramYeux.getCouleur().getId_couleur());
+        return "search_yeux?faces-redirect=true";
+    }
 }

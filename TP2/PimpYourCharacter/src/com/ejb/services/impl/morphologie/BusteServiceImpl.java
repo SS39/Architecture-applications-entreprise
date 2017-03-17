@@ -48,13 +48,51 @@ public class BusteServiceImpl implements BusteService
 	}
 
 	@Override
-	public List<Buste> getBustes() 
-	{
-		return (List<Buste>)em.createQuery("from Buste").getResultList();
+	public List<Buste> getBustes(String id, String largeur, String hauteur, String corpulence) {
+		String query = null;
+
+		if (id.compareToIgnoreCase("0") != 0) {
+			query = "from Buste where id_buste="+id;
+		}
+		if (largeur.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Buste where largeur="+largeur;
+			} else {
+				query+=" and largeur="+largeur;
+			}
+		}
+		if (hauteur.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Buste where hauteur="+hauteur;
+			} else {
+				query+=" and hauteur="+hauteur;
+			}
+		}
+		if (corpulence.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Buste where corpulence="+corpulence;
+			} else {
+				query+=" and corpulence="+corpulence;
+			}
+		}
+
+		if (query == null) {
+			return null;
+		} else {
+			return (List<Buste>)em.createQuery(query).getResultList();
+		}
 	}
-	
+
+	@Override
+	public List<Buste> getBustes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public List<Buste> getSearchBustes(String research) {
-		return (List<Buste>)em.createQuery(research).getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

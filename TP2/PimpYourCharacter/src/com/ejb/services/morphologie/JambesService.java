@@ -11,4 +11,5 @@ public interface JambesService
 	public void supprimerJambes(int id);
 	public List<Jambes> getListJambes();
 	public List<Jambes> getSearchJambes(String research);
+	public List<Jambes> getJambes(String id, String hauteur, String forme);
 }

@@ -53,7 +53,38 @@ public class JambesServiceImpl implements JambesService
 	}
 	
 
+	@Override
+	public List<Jambes> getJambes(String id, String hauteur, String forme) {
+		String query = null;
+
+		if (id.compareToIgnoreCase("0") != 0) {
+			query = "from Jambes where id_jambe="+id;
+		}
+		if (hauteur.compareToIgnoreCase("0") != 0) {
+			if (query == null) {
+				query = "from Jambes where hauteur="+hauteur;
+			} else {
+				query+=" and hauteur="+hauteur;
+			}
+		}
+		if (forme==null) {
+			if (query == null) {
+				query = "from Jambes where forme="+"'"+forme+"'";
+			} else {
+				query+=" and forme="+"'"+forme+"'";
+			}
+		}
+
+		if (query == null) {
+			return null;
+		} else {
+			return (List<Jambes>)em.createQuery(query).getResultList();
+		}
+	}
+
+	@Override
 	public List<Jambes> getSearchJambes(String research) {
-		return (List<Jambes>)em.createQuery(research).getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

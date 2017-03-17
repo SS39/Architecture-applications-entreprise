@@ -1,5 +1,6 @@
 package com.ejb.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -50,8 +51,31 @@ public class CouleurServiceImpl implements CouleurService
 		return (List<Couleur>)em.createQuery("from Couleur").getResultList();
 	}
 	
+	public List<Couleur> getCouleurs(String id, String label) {
+		
+		String query = null;
+		System.out.println("Le label est : "+label);
+		
+		if (id.compareToIgnoreCase("0") != 0) {
+			query = "from Couleur where id_couleur="+id;
+			if (label.compareToIgnoreCase("") != 0) {
+				 query +=" and label="+"'"+label+"'";
+			}
+		} else if (label != null) {
+			query = "from Couleur where label="+"'"+label+"'";	
+		}
+		System.out.println("La query est : "+query);
+		if (query == null) {
+			return new ArrayList<Couleur>();
+		} else {
+			return (List<Couleur>)em.createQuery(query).getResultList();
+		}		
+	}
+
+	@Override
 	public List<Couleur> getSearchCouleurs(String research) {
-		return (List<Couleur>)em.createQuery(research).getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

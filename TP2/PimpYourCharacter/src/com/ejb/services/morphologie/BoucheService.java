@@ -11,4 +11,5 @@ public interface BoucheService
 	public void supprimerBouche(int id);
 	public List<Bouche> getBouches();
 	public List<Bouche> getSearchBouches(String research);
+	public List<Bouche> getBouches(String id, String forme, String largeur, String hauteur, String profondeur, String couleur);
 }

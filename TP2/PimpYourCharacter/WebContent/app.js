@@ -47,6 +47,9 @@ pimpApp.config(function($routeProvider){
 		.when('/nez', {
 			templateUrl : './nez/home_nez.xhtml',
 		})
+		.when('/personnage', {
+			templateUrl : './personnage/home_personnage.xhtml',
+		})
 		.when('/position', {
 			templateUrl : './position/home_position.xhtml',
 		})

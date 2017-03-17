@@ -1,0 +1,43 @@
+<h:form xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+	<f:metadata>
+		<f:viewParam name="id" value="#{personnageController.personnage.id_personnage}" ></f:viewParam>
+		<f:viewParam name="nom" value="#{personnageController.personnage.nom}"></f:viewParam>
+		<f:viewParam name="age" value="#{personnageController.personnage.age}" ></f:viewParam>
+		<f:viewParam name="corps" value="#{personnageController.personnage.corps.id_corps}" ></f:viewParam>
+		<f:viewParam name="ethnie" value="#{personnageController.personnage.ethnie.id_ethnie}" ></f:viewParam>
+		<f:viewParam name="genre" value="#{personnageController.personnage.genre.id_genre}" ></f:viewParam>
+		<f:viewParam name="nom" value="#{personnageController.personnage.nom}" ></f:viewParam>
+		<f:viewParam name="vbas" value="#{personnageController.personnage.vbas.id_vbas}" ></f:viewParam>
+		<f:viewParam name="vhaut" value="#{personnageController.personnage.vhaut.id_vhaut}" ></f:viewParam>
+	</f:metadata>
+    <div style="text-align:center;">
+	    <h2>
+	        <h:outputText value="Modifier un Personnage" />
+	    </h2></div>
+	    <br/>
+	    <h:panelGrid style="margin:auto;" columns="2" cellpadding="5">
+	    	<p:outputLabel value="ID" />
+			<p:outputLabel value="#{personnageController.personnage.id_personnage}"></p:outputLabel>
+			<p:outputLabel value="Nom" />
+			<p:inputText value="#{personnageController.personnage.nom}"></p:inputText>
+			<p:outputLabel value="Age" />
+			<p:inputText value="#{personnageController.personnage.age}"></p:inputText>
+			<p:outputLabel value="Corps" />
+			<p:inputText value="#{personnageController.personnage.corps.id_corps}"></p:inputText>
+			<p:outputLabel value="Ethnie" />
+			<p:inputText value="#{personnageController.personnage.ethnie.id_ethnie}"></p:inputText>
+			<p:outputLabel value="Genre" />
+			<p:inputText value="#{personnageController.personnage.genre.id_genre}"></p:inputText>
+			<p:outputLabel value="Vetement bas" />
+			<p:inputText value="#{personnageController.personnage.vbas.id_vbas}"></p:inputText>
+			<p:outputLabel value="Vetement haut" />
+			<p:inputText value="#{personnageController.personnage.vhaut.id_vhaut}"></p:inputText>
+			<h:commandButton value="Modifier"
+				action="#{personnageController.modifierPersonnage(personnageController.personnage)}"></h:commandButton>
+				<a href="./home_personnage.xhtml">Retour a la liste</a>
+		</h:panelGrid>
+	</h:form>

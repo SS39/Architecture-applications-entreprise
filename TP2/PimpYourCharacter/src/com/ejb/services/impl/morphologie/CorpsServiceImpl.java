@@ -89,4 +89,10 @@ public class CorpsServiceImpl implements CorpsService
 	public List<Corps> getSearchCorps(String research) {
 		return (List<Corps>)em.createQuery(research).getResultList();
 	}
+
+	@Override
+	public List<Corps> getCorps(String id, String taille, String bras, String jambes, String buste, String tete) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

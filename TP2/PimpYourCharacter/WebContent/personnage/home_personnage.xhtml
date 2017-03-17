@@ -1,0 +1,84 @@
+<h:form xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+    <div style="text-align:center;">
+    	<h2>
+     	   <h:outputText value="Liste des Personnages" />
+   		</h2>
+   	</div>
+    <br/>
+    <p:dataTable value="#{personnageController.personnages}" var="pers" border="1">
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="ID"/>
+            </f:facet>
+            <h:outputText value="#{pers.id_personnage}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Nom"/>
+            </f:facet>
+            <h:outputText value="#{pers.nom}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Age"/>
+            </f:facet>
+            <h:outputText value="#{pers.age}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Largeur"/>
+            </f:facet>
+            <h:outputText value="#{pers.corps.toString()}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Ethnie"/>
+            </f:facet>
+            <h:outputText value="#{pers.ethnie.label}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Genre"/>
+            </f:facet>
+            <h:outputText value="#{pers.genre.label}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Vetement Bas"/>
+            </f:facet>
+            <h:outputText value="#{pers.vbas.label}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Vetement Haut"/>
+            </f:facet>
+            <h:outputText value="#{pers.vhaut.label}"/>
+        </p:column>
+        <p:column>
+            <h:link value="Modifier" outcome="modifier_personnage">
+				<f:param id="id" name="id" value="#{pers.id_personnage}"/>
+				<f:param id="nom" name="nom" value="#{pers.nom}"/>
+				<f:param id="age" name="age" value="#{pers.age}"/>
+				<f:param id="corps" name="corps" value="#{pers.corps.id_corps}"/>
+				<f:param id="ethnie" name="ethnie" value="#{pers.ethnie.id_ethnie}"/>
+				<f:param id="genre" name="genre" value="#{pers.genre.id_genre}"/>
+				<f:param id="vbas" name="vbas" value="#{pers.vbas.id_vbas}"/>
+				<f:param id="vhaut" name="vhaut" value="#{pers.vhaut.id_vhaut}"/>
+			</h:link>
+        </p:column>
+         <p:column>
+            <f:facet name="header">
+                <h:outputText value=""/>
+            </f:facet>
+			<h:commandButton action="#{personnageController.supprimerPersonnage(pers)}" value="Supprimer"></h:commandButton>
+        </p:column>
+        <f:facet name="footer">
+        	<p:row><a href="./personnage/ajouter_personnage.xhtml">Ajouter un nouveau personnage</a></p:row>
+        </f:facet>
+    </p:dataTable>
+</h:form>
