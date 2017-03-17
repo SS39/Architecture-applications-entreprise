@@ -10,6 +10,10 @@ import com.jpa.entities.Couleur;
 @Table(name = "bouche")
 public class Bouche implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_bouche;
 	private String forme;
 	private int largeur;

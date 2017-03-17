@@ -7,6 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.ejb.services.equipement.VteteService;
+import com.jpa.entities.Couleur;
+import com.jpa.entities.Texture;
 import com.jpa.entities.equipement.Vtete;
 
 @Stateless
@@ -18,22 +20,39 @@ public class VteteServiceImpl implements VteteService
 	@Override
 	public void ajouterVtete(Vtete vt)
 	{
-		em.persist(vt);
+		Couleur couleur = (Couleur)em.find(Couleur.class, vt.getCouleur().getId_couleur());
+		if (couleur != null)
+		{
+			Texture texture = (Texture)em.find(Texture.class, vt.getTexture().getId_texture());
+			if (texture != null)
+			{
+				vt.setCouleur(couleur);
+				vt.setTexture(texture);
+				em.persist(vt);
+			}
+		}
 	}
 
 	@Override
 	public void modifierVtete(Vtete vt) 
 	{
 		Vtete vtete = (Vtete)em.find(Vtete.class, vt.getId_vtete());
-
 		if (vtete != null)
 		{
-			vtete.setLabel(vt.getLabel());
-			vtete.setCouleur(vt.getCouleur());
-			vtete.setTexture(vt.getTexture());
-			vtete.setPoids(vt.getPoids());
-	
-			em.persist(vtete);
+			Couleur couleur = (Couleur)em.find(Couleur.class, vt.getCouleur().getId_couleur());
+			if (couleur != null)
+			{
+				Texture texture = (Texture)em.find(Texture.class, vt.getTexture().getId_texture());
+				if (texture != null)
+				{
+					vtete.setCouleur(couleur);
+					vtete.setTexture(texture);
+					vtete.setLabel(vt.getLabel());
+					vtete.setPoids(vt.getPoids());
+			
+					em.persist(vtete);
+				}
+			}
 		}
 	}
 

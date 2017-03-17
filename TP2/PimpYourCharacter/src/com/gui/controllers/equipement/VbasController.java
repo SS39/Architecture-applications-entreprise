@@ -34,9 +34,9 @@ public class VbasController
 		vbasservice.modifierVbas(vb);
 	}
 	
-	public void supprimerVbas(Vbas vb)
+	public void supprimerVbas(Vbas v)
 	{				
-		vbasservice.supprimerVbas(vb.getId_vbas());
+		vbasservice.supprimerVbas(v.getId_vbas());
 	}
 	
 	public List<Vbas> getListVbas()

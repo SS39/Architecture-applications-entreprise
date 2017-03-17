@@ -44,7 +44,7 @@ public class TextureServiceImpl implements TextureService{
 	@Override
 	public List<Texture> getTextures() 
 	{
-		return (List<Texture>)em.createQuery("from texture").getResultList();
+		return (List<Texture>)em.createQuery("from Texture").getResultList();
 	}
 
 }

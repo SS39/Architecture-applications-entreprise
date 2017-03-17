@@ -7,6 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.ejb.services.equipement.VbasService;
+import com.jpa.entities.Couleur;
+import com.jpa.entities.Texture;
 import com.jpa.entities.equipement.Vbas;
 
 @Stateless
@@ -18,22 +20,39 @@ public class VbasServiceImpl implements VbasService
 	@Override
 	public void ajouterVbas(Vbas vb)
 	{
-		em.persist(vb);
+		Couleur couleur = (Couleur)em.find(Couleur.class, vb.getCouleur().getId_couleur());
+		if (couleur != null)
+		{
+			Texture texture = (Texture)em.find(Texture.class, vb.getTexture().getId_texture());
+			if (texture != null)
+			{
+				vb.setCouleur(couleur);
+				vb.setTexture(texture);
+				em.persist(vb);
+			}
+		}
 	}
 
 	@Override
 	public void modifierVbas(Vbas vb) 
 	{
 		Vbas vbas = (Vbas)em.find(Vbas.class, vb.getId_vbas());
-
 		if (vbas != null)
 		{
-			vbas.setLabel(vb.getLabel());
-			vbas.setCouleur(vb.getCouleur());
-			vbas.setTexture(vb.getTexture());
-			vbas.setPoids(vb.getPoids());
-	
-			em.persist(vbas);
+			Couleur couleur = (Couleur)em.find(Couleur.class, vb.getCouleur().getId_couleur());
+			if (couleur != null)
+			{
+				Texture texture = (Texture)em.find(Texture.class, vb.getTexture().getId_texture());
+				if (texture != null)
+				{
+					vbas.setLabel(vb.getLabel());
+					vbas.setCouleur(couleur);
+					vbas.setTexture(texture);
+					vbas.setPoids(vb.getPoids());
+			
+					em.persist(vbas);
+				}
+			}
 		}
 	}
 

@@ -12,6 +12,10 @@ import com.jpa.entities.personnage.Personnage;
 @Table(name = "accessoire")
 public class Accessoire implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_accessoire;
 	private String label;
 	private CategorieAccessoire categorieAccessoire;

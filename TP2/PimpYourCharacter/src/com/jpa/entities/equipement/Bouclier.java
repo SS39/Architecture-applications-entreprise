@@ -12,6 +12,10 @@ import com.jpa.entities.personnage.Personnage;
 @Table(name = "bouclier")
 public class Bouclier implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_bouclier;
 	private String label;
 	private int poids;

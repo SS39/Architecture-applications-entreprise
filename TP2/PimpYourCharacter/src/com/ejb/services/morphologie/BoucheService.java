@@ -2,7 +2,6 @@ package com.ejb.services.morphologie;
 
 import java.util.List;
 
-import com.jpa.entities.Couleur;
 import com.jpa.entities.morphologie.Bouche;
 
 public interface BoucheService 

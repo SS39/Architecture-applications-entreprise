@@ -6,7 +6,6 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
 import com.ejb.services.morphologie.BoucheService;
-import com.jpa.entities.Couleur;
 import com.jpa.entities.morphologie.Bouche;
 
 @ManagedBean

@@ -11,6 +11,10 @@ import com.jpa.entities.Texture;
 @Table(name = "vbas")
 public class Vbas implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_vbas;
 	private String label;
 	private int poids;

@@ -8,6 +8,10 @@ import javax.persistence.*;
 @Table(name = "tatouage")
 public class Tatouage implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_tatouage;
 	private String label;
 	

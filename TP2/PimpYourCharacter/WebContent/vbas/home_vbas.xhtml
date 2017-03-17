@@ -1,0 +1,75 @@
+<h:form xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" />
+	<!-- load bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.css" />
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
+	<!-- load angular and jquery-->
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js" />
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js" />
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js" />
+
+    <h1>
+        <h:outputText value="Pimp Your Character" />
+    </h1>
+    <h2>
+        <h:outputText value="Liste des Vetements Bas" />
+    </h2>
+    <br/>
+    <p:dataTable value="#{vbasController.listVbas}" var="vb" border="1">
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="ID"/>
+            </f:facet>
+            <h:outputText value="#{vb.id_vbas}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Label"/>
+            </f:facet>
+            <h:outputText value="#{vb.label}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Poids"/>
+            </f:facet>
+            <h:outputText value="#{vb.poids}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Couleur"/>
+            </f:facet>
+            <h:outputText value="#{vb.couleur.label}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Texture"/>
+            </f:facet>
+            <h:outputText value="#{vb.texture.label}"/>
+        </p:column>
+        <p:column>
+            <h:link value="Modifier" outcome="modifier_vbas">
+				<f:param id="id" name="id" value="#{vb.id_vbas}"/>
+				<f:param id="label" name="label" value="#{vb.label}"/>
+				<f:param id="poids" name="poids" value="#{vb.poids}"/>
+				<f:param id="couleur" name="couleur" value="#{vb.couleur.id_couleur}"/>
+				<f:param id="texture" name="texture" value="#{vb.texture.id_texture}"/>
+			</h:link>
+        </p:column>
+         <p:column>
+            <f:facet name="header">
+                <h:outputText value=""/>
+            </f:facet>
+			<h:commandButton action="#{vbasController.supprimerVbas(vb)}" value="Supprimer"></h:commandButton>
+        </p:column>
+        <f:facet name="footer">
+        	<p:row><a href="./vbas/ajouter_vbas.xhtml">Ajouter nouveau vetement bas</a></p:row>
+        </f:facet>
+    </p:dataTable>
+	<a href="../index.xhtml">Retour au menu</a>
+</h:form>

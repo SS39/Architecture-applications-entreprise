@@ -3,28 +3,34 @@
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html">
-	
-	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" />
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" />
 	<!-- load bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" />
-	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.css" />
-	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" />
+	<link rel="stylesheet"
+		href="https://netdna.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.css" />
+	<script type="text/javascript"
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
 	<!-- load angular and jquery-->
-	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js" />
-	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js" />
-	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js" />
-	
-	
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js" />
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js" />
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js" />
+
 	<f:metadata>
 		<f:viewParam name="id" value="#{boucheController.bouche.id_bouche}"></f:viewParam>
 		<f:viewParam name="forme" value="#{boucheController.bouche.forme}"></f:viewParam>
 		<f:viewParam name="largeur" value="#{boucheController.bouche.largeur}"></f:viewParam>
 		<f:viewParam name="hauteur" value="#{boucheController.bouche.hauteur}"></f:viewParam>
-		<f:viewParam name="profondeur" value="#{boucheController.bouche.profondeur}"></f:viewParam>
-		<f:viewParam name="couleur" value="#{boucheController.bouche.couleur.id_couleur}"></f:viewParam>
+		<f:viewParam name="profondeur"
+			value="#{boucheController.bouche.profondeur}"></f:viewParam>
+		<f:viewParam name="couleur"
+			value="#{boucheController.bouche.couleur.id_couleur}"></f:viewParam>
 	</f:metadata>
-	
-	
 	<h1>
 		<h:outputText value="Pimp Your Character" />
 	</h1>
@@ -34,7 +40,7 @@
 	<br />
 	<h:panelGrid columns="2" cellpadding="5">
 		<p:outputLabel value="ID" />
-		<p:inputText value="#{boucheController.bouche.id_bouche}"></p:inputText>
+		<p:outputLabel value="#{boucheController.bouche.id_bouche}"></p:outputLabel>
 		<p:outputLabel value="Forme" />
 		<p:inputText value="#{boucheController.bouche.forme}"></p:inputText>
 		<p:outputLabel value="Largeur" />
@@ -44,8 +50,9 @@
 		<p:outputLabel value="Profondeur" />
 		<p:inputText value="#{boucheController.bouche.profondeur}"></p:inputText>
 		<p:outputLabel value="ID Couleur" />
-		<!-- p:inputText value="#{boucheController.bouche.couleur.id_couleur}"></p:inputText-->
+		<p:inputText value="#{boucheController.bouche.couleur.id_couleur}"></p:inputText>
 		<h:commandButton value="Modifier"
 			action="#{boucheController.modifierBouche(boucheController.bouche)}"></h:commandButton>
+		<a href="./home_bouche.xhtml">Retour a la liste</a>
 	</h:panelGrid>
 </h:form>

@@ -10,6 +10,10 @@ import com.jpa.entities.Couleur;
 @Table(name = "yeux")
 public class Yeux implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_yeux;
 	private String forme;
 	private int hauteur;

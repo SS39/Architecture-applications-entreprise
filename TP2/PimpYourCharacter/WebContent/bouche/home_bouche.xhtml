@@ -13,15 +13,14 @@
 	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js" />
 	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js" />
 	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js" />
-
-	<h1>
-		<h:outputText value="Pimp Your Character" />
-	</h1>
-	<h2>
-		<h:outputText value="Liste des Bouches" />
-	</h2>
-	<br />
-	<p:dataTable value="#{boucheController.bouches}" var="bou" border="1">
+    <h1>
+        <h:outputText value="Pimp Your Character" />
+    </h1>
+    <h2>
+        <h:outputText value="Liste des Bouches" />
+    </h2>
+    <br/>
+    <p:dataTable value="#{boucheController.bouches}" var="bou" border="1">
         <p:column>
             <f:facet name="header">
                 <h:outputText value="ID"/>
@@ -52,20 +51,20 @@
             </f:facet>
             <h:outputText value="#{bou.profondeur}"/>
         </p:column>
-        <!-- <p:column>
+        <p:column>
             <f:facet name="header">
                 <h:outputText value="Couleur"/>
             </f:facet>
             <h:outputText value="#{bou.couleur.label}"/>
-        </p:column>-->
+        </p:column>
         <p:column>
             <h:link value="Modifier" outcome="modifier_bouche">
-				<f:param id="ID" name="ID" value="#{bou.id_bouche}"/>
-				<f:param id="Forme" name="Forme" value="#{bou.forme}"/>
-				<f:param id="Largeur" name="Largeur" value="#{bou.largeur}"/>
-				<f:param id="Hauteur" name="Hauteur" value="#{bou.hauteur}"/>
-				<f:param id="Profondeur" name="Profondeur" value="#{bou.profondeur}"/>
-				<!-- f:param id="couleur" name="couleur" value="#{bou.couleur.id_couleur}"/-->
+				<f:param id="id" name="id" value="#{bou.id_bouche}"/>
+				<f:param id="forme" name="forme" value="#{bou.forme}"/>
+				<f:param id="largeur" name="largeur" value="#{bou.largeur}"/>
+				<f:param id="hauteur" name="hauteur" value="#{bou.hauteur}"/>
+				<f:param id="profondeur" name="profondeur" value="#{bou.profondeur}"/>
+				<f:param id="couleur" name="couleur" value="#{bou.couleur.id_couleur}"/>
 			</h:link>
         </p:column>
          <p:column>
@@ -75,7 +74,7 @@
 			<h:commandButton action="#{boucheController.supprimerBouche(bou)}" value="Supprimer"></h:commandButton>
         </p:column>
         <f:facet name="footer">
-        	<p:row><a href="./ajouter_bouche.xhtml">Ajouter nouvelle Bouche</a></p:row>
+        	<p:row><a href="./bouche/ajouter_bouche.xhtml">Ajouter une nouvelle bouche</a></p:row>
         </f:facet>
     </p:dataTable>
 </h:form>

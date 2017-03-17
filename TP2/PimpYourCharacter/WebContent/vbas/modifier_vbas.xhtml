@@ -1,0 +1,46 @@
+<h:form xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+	
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" />
+	<!-- load bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.css" />
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
+	<!-- load angular and jquery-->
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js" />
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js" />
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js" />
+		
+	<f:metadata>
+		<f:viewParam name="id" value="#{vbasController.vbas.id_vbas}" ></f:viewParam>
+		<f:viewParam name="label" value="#{vbasController.vbas.label}" ></f:viewParam>
+		<f:viewParam name="poids" value="#{vbasController.vbas.poids}" ></f:viewParam>
+		<f:viewParam name="couleur" value="#{vbasController.vbas.couleur.id_couleur}" ></f:viewParam>
+		<f:viewParam name="texture" value="#{vbasController.vbas.texture.id_texture}" ></f:viewParam>
+	</f:metadata>
+		<h1>
+	        <h:outputText value="Pimp Your Character" />
+	    </h1>
+	    <h2>
+	        <h:outputText value="Modifier un vetement bas" />
+	    </h2>
+	    <br/>
+	    <h:panelGrid columns="2" cellpadding="5">
+	    	<p:outputLabel value="ID" />
+			<p:outputLabel value="#{vbasController.vbas.id_vbas}"></p:outputLabel>
+			<p:outputLabel value="Label" />
+			<p:inputText value="#{vbasController.vbas.label}"></p:inputText>
+			<p:outputLabel value="poids" />
+			<p:inputText value="#{vbasController.vbas.poids}"></p:inputText>
+			<p:outputLabel value="ID Couleur" />
+			<p:inputText value="#{vbasController.vbas.couleur.id_couleur}"></p:inputText>
+			<p:outputLabel value="ID Texture" />
+			<p:inputText value="#{vbasController.vbas.texture.id_texture}"></p:inputText>
+			<h:commandButton value="Modifier"
+				action="#{vbasController.modifierVbas(vbasController.vbas)}"></h:commandButton>
+				<a href="./home_vbas.xhtml">Retour a la liste</a>
+		</h:panelGrid>
+	</h:form>

@@ -14,6 +14,10 @@ import com.jpa.entities.personnage.Personnage;
 @Table(name = "vmain")
 public class Vmain implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_vmain;
 	private String label;
 	private int poids;

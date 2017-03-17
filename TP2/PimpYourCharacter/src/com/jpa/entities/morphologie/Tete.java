@@ -8,6 +8,10 @@ import javax.persistence.*;
 @Table(name = "tete")
 public class Tete implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_tete;
 	private String forme;
 	private int largeur;

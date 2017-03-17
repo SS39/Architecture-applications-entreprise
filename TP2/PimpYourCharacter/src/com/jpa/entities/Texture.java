@@ -18,6 +18,15 @@ public class Texture implements Serializable {
 	private int id_texture;
 	private String label;
 	
+	public Texture() {
+		
+	}
+	
+	public Texture(int id_texture, String label) {
+		this.id_texture = id_texture;
+		this.label = label;
+	}
+	
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId_texture()

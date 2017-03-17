@@ -7,6 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.ejb.services.equipement.VpiedService;
+import com.jpa.entities.Couleur;
+import com.jpa.entities.Texture;
 import com.jpa.entities.equipement.Vpied;
 
 @Stateless
@@ -18,22 +20,39 @@ public class VpiedServiceImpl implements VpiedService
 	@Override
 	public void ajouterVpied(Vpied vp)
 	{
-		em.persist(vp);
+		Couleur couleur = (Couleur)em.find(Couleur.class, vp.getCouleur().getId_couleur());
+		if (couleur != null)
+		{
+			Texture texture = (Texture)em.find(Texture.class, vp.getTexture().getId_texture());
+			if (texture != null)
+			{
+				vp.setCouleur(couleur);
+				vp.setTexture(texture);
+				em.persist(vp);
+			}
+		}
 	}
 
 	@Override
 	public void modifierVpied(Vpied vp) 
 	{
 		Vpied vpied = (Vpied)em.find(Vpied.class, vp.getId_vpied());
-
 		if (vpied != null)
 		{
-			vpied.setLabel(vp.getLabel());
-			vpied.setCouleur(vp.getCouleur());
-			vpied.setTexture(vp.getTexture());
-			vpied.setPoids(vp.getPoids());
-	
-			em.persist(vpied);
+			Couleur couleur = (Couleur)em.find(Couleur.class, vp.getCouleur().getId_couleur());
+			if (couleur != null)
+			{
+				Texture texture = (Texture)em.find(Texture.class, vp.getTexture().getId_texture());
+				if (texture != null)
+				{
+					vpied.setCouleur(couleur);
+					vpied.setTexture(texture);
+					vpied.setLabel(vp.getLabel());
+					vpied.setPoids(vp.getPoids());
+			
+					em.persist(vpied);
+				}
+			}
 		}
 	}
 

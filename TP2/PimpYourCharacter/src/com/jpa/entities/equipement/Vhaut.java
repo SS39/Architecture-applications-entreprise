@@ -11,6 +11,10 @@ import com.jpa.entities.Texture;
 @Table(name = "vhaut")
 public class Vhaut implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_vhaut;
 	private String label;
 	private int poids;

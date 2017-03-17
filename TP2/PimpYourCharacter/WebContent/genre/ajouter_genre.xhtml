@@ -1,0 +1,31 @@
+<h:form xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+	
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" />
+	<!-- load bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.css" />
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
+	<!-- load angular and jquery-->
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js" />
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js" />
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js" />
+		
+		<h1>
+	        <h:outputText value="Pimp Your Character" />
+	    </h1>
+	    <h2>
+	        <h:outputText value="Ajouter un Genre" />
+	    </h2>
+	    <br/>
+		<h:panelGrid columns="2" cellpadding="5">
+			<p:outputLabel value="Label" />
+			<p:inputText value="#{genreController.genre.label}"></p:inputText>
+			<h:commandButton value="Ajouter"
+				action="#{genreController.ajouterGenre(genreController.genre)}"></h:commandButton>
+				<a href="./home_genre.xhtml">Retour a la liste</a>
+		</h:panelGrid>
+	</h:form>

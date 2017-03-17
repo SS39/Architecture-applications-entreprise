@@ -34,9 +34,9 @@ public class VmainController
 		vmainservice.modifierVmain(vm);
 	}
 	
-	public void supprimerVmain(Vmain vm)
+	public void supprimerVmain(Vmain v)
 	{				
-		vmainservice.supprimerVmain(vm.getId_vmain());
+		vmainservice.supprimerVmain(v.getId_vmain());
 	}
 	
 	public List<Vmain> getVmains()

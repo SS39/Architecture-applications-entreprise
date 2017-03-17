@@ -36,9 +36,9 @@ public class TeteController
 		service.modifierTete(t);
 	}
 	
-	public void supprimerTete(Tete t)
+	public void supprimerTete(int idTete)
 	{				
-		service.supprimerTete(t.getId_tete());
+		service.supprimerTete(idTete);
 	}
 	
 	public List<Tete> getTetes()

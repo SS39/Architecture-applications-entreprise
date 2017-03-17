@@ -20,7 +20,6 @@ public class BoucheServiceImpl implements BoucheService
 	public void ajouterBouche(Bouche b)
 	{
 		Couleur couleur = (Couleur)em.find(Couleur.class, b.getCouleur().getId_couleur());
-		
 		if (couleur != null)
 		{
 			b.setCouleur(couleur);

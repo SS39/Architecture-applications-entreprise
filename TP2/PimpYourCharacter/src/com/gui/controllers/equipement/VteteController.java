@@ -35,9 +35,9 @@ public class VteteController
 		vteteservice.modifierVtete(vt);
 	}
 	
-	public void supprimerVtete(Vtete vt)
+	public void supprimerVtete(Vtete v)
 	{				
-		vteteservice.supprimerVtete(vt.getId_vtete());
+		vteteservice.supprimerVtete(v.getId_vtete());
 	}
 	
 	public List<Vtete> getVtetes()

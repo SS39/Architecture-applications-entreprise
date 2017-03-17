@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 
 import com.ejb.services.equipement.AccessoireService;
 import com.jpa.entities.equipement.Accessoire;
+import com.jpa.entities.equipement.CategorieAccessoire;
 
 @Stateless
 public class AccessoireServiceImpl implements AccessoireService
@@ -18,20 +19,28 @@ public class AccessoireServiceImpl implements AccessoireService
 	@Override
 	public void ajouterAccessoire(Accessoire a) 
 	{
-		em.persist(a);
+		CategorieAccessoire ca = (CategorieAccessoire)em.find(CategorieAccessoire.class, a.getCategorieAccessoire().getId_categorie_accessoire());
+		if (ca != null)
+		{
+			a.setCategorieAccessoire(ca);
+			em.persist(a);
+		}
 	}
 
 	@Override
 	public void modifierAccessoire(Accessoire a) 
 	{
 		Accessoire accessoire = (Accessoire)em.find(Accessoire.class, a.getId_accessoire());
-
 		if (accessoire != null)
 		{
-			accessoire.setLabel(a.getLabel());
-			accessoire.setCategorieAccessoire(a.getCategorieAccessoire());
-			
-			em.persist(accessoire);
+			CategorieAccessoire ca = (CategorieAccessoire)em.find(CategorieAccessoire.class, a.getCategorieAccessoire().getId_categorie_accessoire());
+			if (ca != null)
+			{
+				accessoire.setLabel(a.getLabel());
+				accessoire.setCategorieAccessoire(ca);
+				
+				em.persist(accessoire);
+			}
 		}
 	}
 

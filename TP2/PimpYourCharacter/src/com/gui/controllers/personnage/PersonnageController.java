@@ -36,9 +36,9 @@ public class PersonnageController
 		service.modifierPersonnage(p);
 	}
 	
-	public void supprimerPersonnage(Personnage p)
+	public void supprimerPersonnage(int idPersonnage)
 	{				
-		service.supprimerPersonnage(p.getId_personnage());
+		service.supprimerPersonnage(idPersonnage);
 	}
 	
 	public List<Personnage> getPersonnages()

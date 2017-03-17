@@ -8,6 +8,10 @@ import javax.persistence.*;
 @Table(name = "couleur")
 public class Couleur implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_couleur;
 	private String label;
 	

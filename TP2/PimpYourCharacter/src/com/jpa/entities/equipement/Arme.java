@@ -12,6 +12,10 @@ import com.jpa.entities.personnage.Personnage;
 @Table(name = "arme")
 public class Arme implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_arme;
 	private String label;
 	private int poids;
