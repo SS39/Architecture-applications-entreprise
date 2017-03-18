@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:body>
+
+    <h1>Resultats de recherche</h1>
+    <h:form>
+		<p:dataTable value="#{searchController.getBouche(flash.keep.bouche_id,flash.keep.bouche_forme,flash.keep.bouche_largeur,flash.keep.bouche_hauteur,flash.keep.bouche_profondeur,flash.keep.bouche_couleur)}" var="bou" border="1">
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="ID" />
+				</f:facet>
+				<h:outputText value="#{bou.id_bouche}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Forme" />
+				</f:facet>
+				<h:outputText value="#{bou.forme}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Largeur" />
+				</f:facet>
+				<h:outputText value="#{bou.largeur}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Hauteur" />
+				</f:facet>
+				<h:outputText value="#{bou.hauteur}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Profondeur" />
+				</f:facet>
+				<h:outputText value="#{bou.profondeur}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="ID Couleur" />
+				</f:facet>
+				<h:outputText value="#{bou.couleur}" />
+			</p:column>
+			<p:commandButton value="Supprimer"
+				action="#{boucheController.supprimerBouche(bou)}"></p:commandButton>
+		</p:dataTable>
+	</h:form>
+
+</h:body>
+</html>

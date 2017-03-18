@@ -35,6 +35,12 @@ pimpApp.config(function($routeProvider){
 		.when('/couleur', {
 			templateUrl : './couleur/home_couleur.xhtml',
 		})
+		.when('/couleuradd', {
+			templateUrl : './couleur/ajouter_couleur.xhtml',
+		})
+		.when('/couleurup', {
+			templateUrl : './couleur/modifier_couleur.xhtml',
+		})
 		.when('/ethnie', {
 			templateUrl : './ethnie/home_ethnie.xhtml',
 		})
@@ -79,6 +85,9 @@ pimpApp.config(function($routeProvider){
 		})
 		.when('/yeux', {
 			templateUrl : './yeux/home_yeux.xhtml',
+		})
+		.when('/search', {
+			templateUrl : './search/home_search.xhtml',
 		})
 	    .otherwise({
 	        redirectTo : '/',

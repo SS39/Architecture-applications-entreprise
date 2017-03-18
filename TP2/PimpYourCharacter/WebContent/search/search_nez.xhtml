@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:body>
+
+	<h1>Resultats de recherche</h1>
+
+	<h:form>
+		<p:dataTable
+			value="#{searchController.getNez(flash.keep.nez_id,flash.keep.nez_forme,flash.keep.nez_largeur,flash.keep.nez_hauteur,flash.keep.nez_profondeur)}"
+			var="nez" border="1">
+	<p:column>
+            <f:facet name="header">
+                <h:outputText value="ID"/>
+            </f:facet>
+            <h:outputText value="#{nez.id_nez}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Forme"/>
+            </f:facet>
+            <h:outputText value="#{nez.forme}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Largeur"/>
+            </f:facet>
+            <h:outputText value="#{nez.largeur}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Hauteur"/>
+            </f:facet>
+            <h:outputText value="#{nez.hauteur}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Profondeur"/>
+            </f:facet>
+            <h:outputText value="#{nez.profondeur}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value=""/>
+            </f:facet>
+			<h:commandButton action="modifier_nez" value="modifier"></h:commandButton>
+        </p:column>
+        <f:facet name="footer">
+            <p:row><p:commandButton value="Supprimer" action="#{nezController.supprimerNez(1)}"></p:commandButton></p:row>
+        </f:facet>
+		</p:dataTable>
+	</h:form>
+
+</h:body>
+</html>

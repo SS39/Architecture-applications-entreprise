@@ -1,0 +1,172 @@
+<h:form xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+	<h1>Bouche</h1>
+
+		<h:panelGrid columns="2">
+			<h:outputText value="ID :" />
+			<h:inputText value="#{searchController.paramBouche.id_bouche}" />
+			<h:outputText value="Forme :" />
+			<h:inputText value="#{searchController.paramBouche.forme}" />
+			<h:outputText value="Largeur :" />
+			<h:inputText value="#{searchController.paramBouche.largeur}" />
+			<h:outputText value="Hauteur :" />
+			<h:inputText value="#{searchController.paramBouche.hauteur}" />
+			<h:outputText value="profondeur :" />
+			<h:inputText value="#{searchController.paramBouche.profondeur}" />
+			<h:outputText value="ID Couleur :" />
+			<h:inputText
+				value="#{searchController.paramBouche.couleur.id_couleur}" />
+		</h:panelGrid>
+
+		<h:commandButton value="Recherche"
+			action="#{searchController.searchBouche()}" />
+	
+
+	<h1>Bras</h1>
+
+		<h:panelGrid columns="2">
+			<h:outputText value="ID :" />
+			<h:inputText value="#{searchController.paramBras.id_bras}" />
+			<h:outputText value="Longueur :" />
+			<h:inputText value="#{searchController.paramBras.longueur}" />
+			<h:outputText value="Forme :" />
+			<h:inputText value="#{searchController.paramBras.forme}" />
+		</h:panelGrid>
+
+		<h:commandButton value="Recherche"
+			action="#{searchController.searchBras()}" />
+	
+
+	<h1>Buste</h1>
+
+		<h:panelGrid columns="2">
+			<h:outputText value="ID :" />
+			<h:inputText value="#{searchController.paramBuste.id_buste}" />
+			<h:outputText value="Largeur :" />
+			<h:inputText value="#{searchController.paramBuste.largeur}" />
+			<h:outputText value="Hauteur :" />
+			<h:inputText value="#{searchController.paramBuste.hauteur}" />
+			<h:outputText value="Corpulence :" />
+			<h:inputText value="#{searchController.paramBuste.corpulence}" />
+		</h:panelGrid>
+
+		<h:commandButton value="Recherche"
+			action="#{searchController.searchBuste()}" />
+	
+
+	<h1>Corps</h1>
+	
+		<h:panelGrid columns="2">
+			<h:outputText value="ID :" />
+			<h:inputText value="#{searchController.paramCorps.id_corps}" />
+			<h:outputText value="Taille :" />
+			<h:inputText value="#{searchController.paramCorps.taille}" />
+			<h:outputText value="Bras ID :" />
+			<h:inputText value="#{searchController.paramCorps.bras.id_bras}" />
+			<h:outputText value="Jambes ID :" />
+			<h:inputText value="#{searchController.paramCorps.jambes.id_jambe}" />
+			<h:outputText value="Buste ID :" />
+			<h:inputText value="#{searchController.paramCorps.buste.id_buste}" />
+			<h:outputText value="Tete ID :" />
+			<h:inputText value="#{searchController.paramCorps.tete.id_tete}" />
+		</h:panelGrid>
+
+		<h:commandButton value="Recherche"
+			action="#{searchController.searchCorps()}" />
+	
+
+	<h1>Couleur</h1>
+	
+		<h:panelGrid columns="2">
+			<h:outputText value="ID :" />
+			<h:inputText value="#{searchController.paramCouleur.id_couleur}" />
+			<h:outputText value="Label :" />
+			<h:inputText value="#{searchController.paramCouleur.label}" />
+		</h:panelGrid>
+
+		<h:commandButton value="Recherche"
+			action="#{searchController.searchCouleur()}" />
+	
+
+	<h1>Jambes</h1>
+	
+		<h:panelGrid columns="2">
+			<h:outputText value="ID :" />
+			<h:inputText value="#{searchController.paramJambes.id_jambe}" />
+			<h:outputText value="Hauteur :" />
+			<h:inputText value="#{searchController.paramJambes.hauteur}" />
+			<h:outputText value="Forme :" />
+			<h:inputText value="#{searchController.paramJambes.forme}" />
+		</h:panelGrid>
+
+		<h:commandButton value="Recherche"
+			action="#{searchController.searchJambes()}" />
+	
+
+	<h1>Nez</h1>
+	
+		<h:panelGrid columns="2">
+			<h:outputText value="ID :" />
+			<h:inputText value="#{searchController.paramNez.id_nez}" />
+			<h:outputText value="Forme :" />
+			<h:inputText value="#{searchController.paramNez.forme}" />
+			<h:outputText value="Largeur :" />
+			<h:inputText value="#{searchController.paramNez.largeur}" />
+			<h:outputText value="Hauteur :" />
+			<h:inputText value="#{searchController.paramNez.hauteur}" />
+			<h:outputText value="Profondeur :" />
+			<h:inputText value="#{searchController.paramNez.profondeur}" />
+		</h:panelGrid>
+
+		<h:commandButton value="Recherche"
+			action="#{searchController.searchNez()}" />
+	
+
+	<h1>Tete</h1>
+
+		<h:panelGrid columns="2">
+			<h:outputText value="ID :" />
+			<h:inputText value="#{searchController.paramTete.id_tete}" />
+			<h:outputText value="Forme :" />
+			<h:inputText value="#{searchController.paramTete.forme}" />
+			<h:outputText value="Largeur :" />
+			<h:inputText value="#{searchController.paramTete.largeur}" />
+			<h:outputText value="Hauteur :" />
+			<h:inputText value="#{searchController.paramTete.hauteur}" />
+			<h:outputText value="Nez ID :" />
+			<h:inputText value="#{searchController.paramTete.nez.id_nez}" />
+			<h:outputText value="Bouche ID :" />
+			<h:inputText value="#{searchController.paramTete.bouche.id_bouche}" />
+			<h:outputText value="Yeux ID :" />
+			<h:inputText value="#{searchController.paramTete.yeux.id_yeux}" />
+		</h:panelGrid>
+
+		<h:commandButton value="Recherche"
+			action="#{searchController.searchTete()}" />
+	
+
+	<h1>Yeux</h1>
+		<h:panelGrid columns="2">
+			<h:outputText value="ID :" />
+			<h:inputText value="#{searchController.paramYeux.id_yeux}" />
+			<h:outputText value="Forme :" />
+			<h:inputText value="#{searchController.paramYeux.forme}" />
+			<h:outputText value="Hauteur :" />
+			<h:inputText value="#{searchController.paramYeux.hauteur}" />
+			<h:outputText value="Largeur :" />
+			<h:inputText value="#{searchController.paramYeux.largeur}" />
+			<h:outputText value="Profondeur :" />
+			<h:inputText value="#{searchController.paramYeux.profondeur}" />
+			<h:outputText value="Ecartement :" />
+			<h:inputText value="#{searchController.paramYeux.ecartement}" />
+			<h:outputText value="Couleur ID :" />
+			<h:inputText value="#{searchController.paramYeux.couleur.id_couleur}" />
+		</h:panelGrid>
+
+		<h:commandButton value="Recherche"
+			action="#{searchController.searchYeux()}" />
+	</h:form>

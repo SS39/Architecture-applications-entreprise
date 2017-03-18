@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:body>
+
+	<h1>Resultats de recherche</h1>
+
+	<h:form>
+		<p:dataTable
+			value="#{searchController.getTete(flash.keep.tete_id,flash.keep.tete_forme,flash.keep.tete_largeur,flash.keep.tete_hauteur,flash.keep.tete_nez,flash.keep.tete_bouche,flash.keep.tete_yeux)}"
+			var="tete" border="1">
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="ID" />
+				</f:facet>
+				<h:outputText value="#{tete.id_tete}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Largeur" />
+				</f:facet>
+				<h:outputText value="#{tete.largeur}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Hauteur" />
+				</f:facet>
+				<h:outputText value="#{tete.hauteur}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Forme" />
+				</f:facet>
+				<h:outputText value="#{tete.forme}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="ID Nez" />
+				</f:facet>
+				<h:outputText value="#{tete.nez}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="ID Bouche" />
+				</f:facet>
+				<h:outputText value="#{tete.bouche}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="ID Yeux" />
+				</f:facet>
+				<h:outputText value="#{tete.yeux}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="" />
+				</f:facet>
+				<h:commandButton action="modifier_tete" value="modifier"></h:commandButton>
+			</p:column>
+			<f:facet name="footer">
+				<p:row>
+					<p:commandButton value="Supprimer"
+						action="#{teteController.supprimerTete(tete)}"></p:commandButton>
+				</p:row>
+			</f:facet>
+		</p:dataTable>
+	</h:form>
+
+</h:body>
+</html>
